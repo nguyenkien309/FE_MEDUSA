@@ -110,3 +110,36 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+.slick-slide {
+  height: inherit !important;
+  outline: none !important;
+  margin-bottom: 10px;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}
+
+.custom-text-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slick-slide {
+  height: auto;
+  margin: 0 10px;
+}
+.slick-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.slick-center .activeCenterSlider {
+  margin-bottom: 54px;
+  -webkit-line-clamp: 4;
+}
