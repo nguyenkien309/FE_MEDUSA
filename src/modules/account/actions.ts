@@ -30,6 +30,10 @@ export async function signUp(_currentState: unknown, formData: FormData) {
   } as StorePostCustomersReq
 
   try {
+    const confirmPassword = formData.get("confirm_password") as string
+    if (customer.password !== confirmPassword) {
+      throw new Error("Confirm password do not match")
+    }
     await createCustomer(customer)
     await getToken({ email: customer.email, password: customer.password }).then(
       () => {

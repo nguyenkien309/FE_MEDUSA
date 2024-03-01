@@ -68,6 +68,7 @@ module.exports = {
           "Helvetica Neue",
           "Ubuntu",
           "sans-serif",
+          "Volkhov",
         ],
       },
       keyframes: {
