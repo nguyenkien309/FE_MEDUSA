@@ -1,90 +1,90 @@
 "use client"
 
-import { useFormState } from "react-dom"
-
-import Input from "@modules/common/components/input"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
-import { signUp } from "@modules/account/actions"
-import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import AuthFormInput from "@modules/common/components/input/AuthFormInput"
+import Image from "next/image"
+import FormAuth from "../form-auth"
+import GoogleIcon from "/public/google-icon.png"
+import SignUpImage from "/public/signup.jpg"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
 }
 
 const Register = ({ setCurrentView }: Props) => {
-  const [message, formAction] = useFormState(signUp, null)
-
   return (
-    <div className="max-w-sm flex flex-col items-center">
-      <h1 className="text-large-semi uppercase mb-6">
-        Become a BHSOFT Member
-      </h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your BHSOFT Member profile, and get access to an enhanced
-        shopping experience.
-      </p>
-      <form className="w-full flex flex-col" action={formAction}>
-        <div className="flex flex-col w-full gap-y-2">
-          <Input
+    <div className="p-5">
+      <FormAuth title="Create Account" imageUrl={SignUpImage.src}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <AuthFormInput
             label="First name"
             name="first_name"
             required
             autoComplete="given-name"
           />
-          <Input
+          <AuthFormInput
             label="Last name"
             name="last_name"
             required
             autoComplete="family-name"
           />
-          <Input
+          <AuthFormInput
             label="Email"
             name="email"
             required
             type="email"
             autoComplete="email"
           />
-          <Input label="Phone" name="phone" type="tel" autoComplete="tel" />
-          <Input
+          <AuthFormInput
+            label="Phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+          />
+          <AuthFormInput
             label="Password"
             name="password"
-            required
             type="password"
-            autoComplete="new-password"
+            autoComplete="current-password"
+            required
+            width={110}
+          />
+          <AuthFormInput
+            label="Confirm Password"
+            name="confirm_password"
+            type="password"
+            autoComplete="current-password"
+            required
           />
         </div>
-        <ErrorMessage error={message} />
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          By creating an account, you agree to BHSOFT&apos;s{" "}
-          <LocalizedClientLink
-            href="/content/privacy-policy"
-            className="underline"
+        <div className="md:px-5 pt-6">
+          <SubmitButton className="w-full mb-4">Create Account</SubmitButton>
+          <a
+            type="button"
+            href="#"
+            className="border border-[#5B86E5] rounded-lg text-xs w-full flex justify-center gap-x-2 py-2.5 font-medium"
           >
-            Privacy Policy
-          </LocalizedClientLink>{" "}
-          and{" "}
-          <LocalizedClientLink
-            href="/content/terms-of-use"
-            className="underline"
+            <Image
+              width={15}
+              layout="response"
+              src={GoogleIcon}
+              alt={`Google icon`}
+            />
+            Sign up with Google
+          </a>
+        </div>
+
+        <span className="text-center text-ui-fg-base text-small-regular mt-2 flex justify-center">
+          Already have an account?
+          <button
+            onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
+            className="text-[#5B86E5] ml-1"
           >
-            Terms of Use
-          </LocalizedClientLink>
-          .
+            Login
+          </button>
         </span>
-        <SubmitButton className="w-full mt-6">Join</SubmitButton>
-      </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Already a member?{" "}
-        <button
-          onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline"
-        >
-          Sign in
-        </button>
-        .
-      </span>
+      </FormAuth>
     </div>
   )
 }
