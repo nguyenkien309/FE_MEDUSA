@@ -1,66 +1,85 @@
-import { headers } from "next/headers"
-import { Suspense } from "react"
-
-import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CartButton from "@modules/layout/components/cart-button"
-import SideMenu from "@modules/layout/components/side-menu"
+import Image from "next/image"
+import SearchIcon from "@assets/icons/search.svg"
+import CartIcon from "@assets/icons/cart.svg"
 
 export default async function Nav() {
-  const regions = await listRegions().then((regions) => regions)
-
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
-          </div>
-
-          <div className="flex items-center h-full">
+    <nav className="border-t border-ui-border-base w-full">
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-row w-full items-center py-5 px-4 max-w-[80rem]">
+          {/* Brand Name (Responsive) */}
+          <div className="flex-grow sm:flex-grow-0">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="font-volkhov text-[3.25rem] leading-32 text-center"
+              style={{ fontFamily: "volkhov" }}
             >
-              BHSOFT
+              BHShop
             </LocalizedClientLink>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
+          <div className="flex items-center justify-end flex-grow">
+            <div className="hidden sm:flex items-center justify-center gap-20 shrink-0">
+              <LocalizedClientLink
+                className="hidden lg:flex hover:text-ui-fg-base text-[1rem]"
+                href="/account"
+              >
+                Home
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="hidden lg:flex hover:text-ui-fg-base text-[1rem]"
+                href="/store"
+              >
+                Store
+              </LocalizedClientLink>
               {process.env.FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
+                  className="hidden lg:flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
                   href="/search"
                   scroll={false}
+                  style={{ backgroundImage: `url(${SearchIcon})` }}
                 >
-                  Search
+                  <Image src={SearchIcon} alt="search" width={18} height={18} />
                 </LocalizedClientLink>
               )}
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="hover:text-ui-fg-base text-[1rem] shrink-0"
+                href="/cart"
+              >
+                <Image src={CartIcon} alt="cart" width={18} height={20} />
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="hover:text-ui-fg-base text-[1rem] shrink-0"
                 href="/account"
               >
-                Account
+                Sign in
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="w-full rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base"
+                href="/account"
+              >
+                Sign Up
               </LocalizedClientLink>
             </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
+
+            <div className="sm:hidden flex items-center justify-end gap-5 w-full">
+              <LocalizedClientLink
+                className="hover:text-ui-fg-base text-[1rem] "
+                href="/cart"
+              >
+                <Image src={CartIcon} alt="cart" width={18} height={20} />
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="w-auto rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base"
+                href="/account"
+              >
+                Sign in
+              </LocalizedClientLink>
+            </div>
           </div>
-        </nav>
-      </header>
-    </div>
+        </div>
+      </div>
+    </nav>
   )
 }
