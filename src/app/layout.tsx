@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import { Metadata } from "next"
 import "styles/globals.css"
 
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Volkhov:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <main className="relative">{props.children}</main>
       </body>

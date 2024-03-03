@@ -60,6 +60,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "volkhov",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -68,7 +69,6 @@ module.exports = {
           "Helvetica Neue",
           "Ubuntu",
           "sans-serif",
-          "Volkhov",
         ],
       },
       keyframes: {

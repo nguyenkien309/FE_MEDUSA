@@ -5,14 +5,24 @@ import React from "react"
 const Help = () => {
   return (
     <div className="mt-6">
-      <Heading className="text-base-semi">Need help?</Heading>
+      <Heading className="text-base-semi text-[14px] md:text-[16px]">
+        Need help?
+      </Heading>
       <div className="text-base-regular my-2">
         <ul className="gap-y-2 flex flex-col">
           <li>
-            <LocalizedClientLink href="/contact">Contact</LocalizedClientLink>
+            <LocalizedClientLink
+              className="text-[14px] md:text-[16px]"
+              href="/contact"
+            >
+              Contact
+            </LocalizedClientLink>
           </li>
           <li>
-            <LocalizedClientLink href="/contact">
+            <LocalizedClientLink
+              className="text-[14px] md:text-[16px]"
+              href="/contact"
+            >
               Returns & Exchanges
             </LocalizedClientLink>
           </li>
