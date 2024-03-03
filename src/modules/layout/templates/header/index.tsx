@@ -3,7 +3,7 @@ import Image from "next/image"
 import SearchIcon from "@assets/icons/search.svg"
 import CartIcon from "@assets/icons/cart.svg"
 
-export default async function Nav() {
+export default async function Header() {
   return (
     <nav className="border-t border-ui-border-base w-full">
       <div className="flex flex-col justify-center items-center">
@@ -13,7 +13,6 @@ export default async function Nav() {
             <LocalizedClientLink
               href="/"
               className="font-volkhov text-[3.25rem] leading-32 text-center"
-              style={{ fontFamily: "volkhov" }}
             >
               BHShop
             </LocalizedClientLink>

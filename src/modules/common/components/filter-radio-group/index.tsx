@@ -1,6 +1,7 @@
-import { EllipseMiniSolid } from "@medusajs/icons"
 import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
+import Image from "next/image"
 import { ChangeEvent } from "react"
+import NewIcon from "/public/new.png"
 
 type FilterRadioGroupProps = {
   title: string
@@ -20,16 +21,17 @@ const FilterRadioGroup = ({
 }: FilterRadioGroupProps) => {
   return (
     <div className="flex gap-x-3 flex-col gap-y-3">
-      <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
-      <RadioGroup>
-        {items?.map((i) => (
+      <Text className="text-xl" weight={"plus"}>
+        {title}
+      </Text>
+      <RadioGroup className="ml-2">
+        {items?.map((i, index) => (
           <div
             key={i.value}
             className={clx("flex gap-x-2 items-center", {
-              "ml-[-1.75rem]": i.value === value,
+              "font-semibold": i.value === value,
             })}
           >
-            {i.value === value && <EllipseMiniSolid />}
             <RadioGroup.Item
               checked={i.value === value}
               onClick={(e) =>
@@ -42,18 +44,34 @@ const FilterRadioGroup = ({
               id={i.value}
               value={i.value}
             />
-            <Label
-              placeholder={i.label}
-              htmlFor={i.value}
-              className={clx(
-                "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer",
-                {
-                  "text-ui-fg-base": i.value === value,
-                }
+            <div>
+              {+index === 1 && (
+                <Text className="text-base txt-ui-fg-base mb-1">Price</Text>
               )}
-            >
-              {i.label}
-            </Label>
+              <Label
+                placeholder={i.label}
+                htmlFor={i.value}
+                className={clx(
+                  "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer flex gap-x-2 items-center",
+                  {
+                    "text-ui-fg-base": i.value === value,
+                    "ml-3": +index !== 0,
+                    "!text-base": +index === 0,
+                  }
+                )}
+              >
+                {i.label}
+                {index === 0 && (
+                <Image
+                  width={30}
+                  layout="response"
+                  src={NewIcon}
+                  alt={`New icon`}
+                />
+              )}
+              </Label>
+             
+            </div>
           </div>
         ))}
       </RadioGroup>

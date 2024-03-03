@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 import Footer from "@modules/layout/templates/footer"
-import Nav from "@modules/layout/templates/nav"
+import Header from "@modules/layout/templates/header"
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
-      <Nav />
-      {props.children}
+      <Header />
+      <div className="min-h-[calc(100vh-118px)]">{props.children}</div>
       <Footer />
     </>
   )
