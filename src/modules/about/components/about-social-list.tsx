@@ -1,8 +1,8 @@
 import Image from "next/image"
-import InstaIcon from "@assets/icons/insta.svg"
-import FacebookIcon from "@assets/icons/fb.svg"
-import TweetIcon from "@assets/icons/tw.svg"
-import YoutubeIcon from "@assets/icons/yt.svg"
+import InstaIcon from "/public/icons/insta.svg"
+import FacebookIcon from "/public/icons/fb.svg"
+import TweetIcon from "/public/icons/tw.svg"
+import YoutubeIcon from "/public/icons/yt.svg"
 
 const AboutSocialList = () => {
   return (

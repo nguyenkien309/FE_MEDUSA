@@ -1,6 +1,19 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import { Metadata } from "next"
 import "styles/globals.css"
+import { Poppins, Volkhov } from "next/font/google"
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-poppins",
+})
+
+const volkhov = Volkhov({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-volkhov",
+})
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
@@ -11,13 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Volkhov:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <body className={`${poppins.className} ${volkhov.className}`}>
         <main className="relative">{props.children}</main>
       </body>
     </html>

@@ -10,6 +10,22 @@ module.exports = {
     "./node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    container: {
+      screens: {
+        sm: "100%",
+        md: "768px",
+        lg: "100%",
+        xl: "1215px",
+      },
+      center: true,
+      padding: {
+        DEFAULT: "16px",
+        md: "0",
+        lg: "0",
+        xl: "0",
+        "2xl": "0",
+      },
+    },
     extend: {
       transitionProperty: {
         width: "width margin",
@@ -70,6 +86,8 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        poppins: "var(--font-poppins",
+        volkhov: "var(--font-volkhov)",
       },
       keyframes: {
         ring: {
@@ -156,6 +174,9 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
+      },
+      boxShadow: {
+        arrow: "rgba(0, 0, 0, 0.2) 0px 7px 30px",
       },
     },
   },

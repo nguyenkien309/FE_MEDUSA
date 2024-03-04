@@ -1,7 +1,7 @@
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
-import SearchIcon from "@assets/icons/search.svg"
-import CartIcon from "@assets/icons/cart.svg"
+import SearchIcon from "/public/icons/search.svg"
+import CartIcon from "/public/icons/cart.svg"
 
 export default async function Header() {
   return (
