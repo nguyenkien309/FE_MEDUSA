@@ -142,4 +142,19 @@
 .slick-center .activeCenterSlider {
   margin-bottom: 54px;
   -webkit-line-clamp: 4;
+  width: 300px;
+}
+.slick-slide.slick-active.slick-center.slick-current {
+  min-width: 770px !important;
+  transition: all;
+  transform: translateY(-50px);
+  animation-duration: 300ms;
+  z-index: 999;
+}
+@media screen and (max-width: 767.98px) {
+  .slick-slide.slick-active.slick-center.slick-current {
+    min-width: 380px !important;
+    transition: all;
+    animation-duration: 300ms;
+  }
 }
