@@ -7,7 +7,7 @@ import FilterRadioGroup from "@modules/common/components/filter-radio-group"
 export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
 type SortProductsProps = {
-  sortBy: SortOptions
+  sortBy?: SortOptions
   setQueryParams: (name: string, value: SortOptions) => void
 }
 
