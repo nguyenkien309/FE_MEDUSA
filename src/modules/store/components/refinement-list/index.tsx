@@ -1,16 +1,18 @@
 "use client"
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useCallback } from "react"
+import { ReactNode, useCallback } from "react"
 
+import FilterProducts from "./filter-products"
 import SortProducts, { SortOptions } from "./sort-products"
 
 type RefinementListProps = {
   sortBy: SortOptions
   search?: boolean
+  children: ReactNode
 }
 
-const RefinementList = ({ sortBy }: RefinementListProps) => {
+const RefinementList = ({ sortBy, children }: RefinementListProps) => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -33,6 +35,7 @@ const RefinementList = ({ sortBy }: RefinementListProps) => {
   return (
     <div className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[250px] small:ml-[1.675rem]">
       <SortProducts sortBy={sortBy} setQueryParams={setQueryParams} />
+      {children}
     </div>
   )
 }

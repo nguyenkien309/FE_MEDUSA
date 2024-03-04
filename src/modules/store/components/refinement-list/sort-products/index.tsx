@@ -14,15 +14,15 @@ type SortProductsProps = {
 const sortOptions = [
   {
     value: "created_at",
-    label: "Latest Arrivals",
+    label: "New Product",
   },
   {
     value: "price_asc",
-    label: "Price: Low -> High",
+    label: "Low to High",
   },
   {
     value: "price_desc",
-    label: "Price: High -> Low",
+    label: "High to Low",
   },
 ]
 
