@@ -24,7 +24,7 @@ export default function ProductRail({
       <div className="flex justify-between mb-8">
       
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
+      <ul className="grid md:grid-cols-3 grid-cols-2 gap-x-2 md:gap-x-6 md:gap-y-24 gap-y-4">
         {products &&
           products.map((product) => (
             <li key={product.id}>
@@ -36,12 +36,12 @@ export default function ProductRail({
             </li>
           ))}
       </ul>
-     <div className="items-center">
-      <button className="bg-black text-white font-volkhov w-[207px] h-14 text-base rounded-md">
+     <div className="items-center py-4">
       <Link href={`/collections/${collection.handle}`}>
+      <button className="bg-black text-white font-volkhov w-[207px] h-14 text-base rounded-md ">
           View all
-        </Link>
       </button>
+        </Link>
      </div>
     </div>
   )

@@ -24,7 +24,7 @@ const ReviewSlider = () => {
   }, [])
   
   return (
-    <div className="overflow-hidden bg-[#FAFAFA]">
+    <div className="container overflow-hidden bg-[#FAFAFA]">
       <div className="pb-8 text-center">
         <p className="text-[46px] text-[#484848]">
           This Is What Our Customers Say
