@@ -25,7 +25,6 @@ export default function CategoryTemplate({
 
   const category = categories[categories.length - 1]
   const parents = categories.slice(0, categories.length - 1)
-  console.log("category", category)
 
   if (!category || !countryCode) notFound()
 
@@ -70,6 +69,7 @@ export default function CategoryTemplate({
                     </InteractiveLink>
                   </li>
                 ))}
+                
               </ul>
             </div>
           )}

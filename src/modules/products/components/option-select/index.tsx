@@ -1,5 +1,5 @@
 import { ProductOption } from "@medusajs/medusa"
-import { clx } from "@medusajs/ui"
+import { Text, clx } from "@medusajs/ui"
 import React from "react"
 
 import { onlyUnique } from "@lib/util/only-unique"
@@ -21,17 +21,20 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
 
   return (
     <div className="flex flex-col gap-y-3">
-      <span className="text-sm">Select {title}</span>
-      <div className="flex flex-wrap justify-between gap-2">
+      <Text size="base" weight={"plus"}>
+        {title}: {current}
+      </Text>
+      <div className="flex flex-wrap gap-2">
         {filteredOptions.map((v) => {
           return (
             <button
               onClick={() => updateOption({ [option.id]: v })}
               key={v}
               className={clx(
-                "border-ui-border-base bg-ui-bg-subtle border text-small-regular h-10 rounded-rounded p-2 flex-1 ",
+                "border-ui-border-base bg-ui-bg-subtle border text-small-regular h-10 rounded-rounded p-2 px-4",
                 {
-                  "border-ui-border-interactive": v === current,
+                  "border-ui-border-interactive bg-black text-white":
+                    v === current,
                   "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
                     v !== current,
                 }

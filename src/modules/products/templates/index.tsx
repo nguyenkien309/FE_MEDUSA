@@ -2,15 +2,17 @@ import { Region } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import React, { Suspense } from "react"
 
+import { Text } from "@medusajs/ui"
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
-import ProductTabs from "@modules/products/components/product-tabs"
 import RelatedProducts from "@modules/products/components/related-products"
-import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
+import TrustBag from "/public/trustbag.png"
+import Image from "next/image"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type ProductTemplateProps = {
   product: PricedProduct
@@ -29,21 +31,42 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
   return (
     <>
-      <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative">
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
-          <ProductInfo product={product} />
-          <ProductTabs product={product} />
-        </div>
-        <div className="block w-full relative">
-          <ImageGallery images={product?.images || []} />
-        </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
-          <ProductOnboardingCta />
-          <Suspense
-            fallback={<ProductActions product={product} region={region} />}
+      <div className="content-container py-6 relative px-5 md:px-24">
+        <div className="flex items-center gap-x-2 mb-5">
+          <LocalizedClientLink
+            className="hover:text-ui-fg-base text-xl"
+            href="/store"
           >
-            <ProductActionsWrapper id={product.id} region={region} />
-          </Suspense>
+            Fashion
+          </LocalizedClientLink>
+          <span>{`>`}</span>
+          <Text size="xlarge" weight={"plus"}>
+            Product
+          </Text>
+        </div>
+        <div className="block xl:flex gap-x-20">
+          <ImageGallery images={product?.images || []} />
+          <div className="space-y-4">
+            <Suspense
+              fallback={<ProductActions product={product} region={region} />}
+            >
+              <ProductActionsWrapper id={product.id} region={region} />
+            </Suspense>
+            <ProductOnboardingCta />
+            <div className="p-3 bg-[#F8F8F8] flex justify-center max-w-[500px] mx-auto">
+              <div className="space-y-3 ">
+                <Image
+                  src={TrustBag}
+                  alt="Trust Bag" 
+                  layout="response"
+                  width={320}
+                />
+                <Text size="large" weight={"plus"} className="text-center">
+                  Guarantee safe & secure checkout
+                </Text>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="content-container my-16 small:my-32">

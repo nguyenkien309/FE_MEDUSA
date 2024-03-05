@@ -2,7 +2,7 @@
 
 import { Region } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import { Button } from "@medusajs/ui"
+import { Button, Text } from "@medusajs/ui"
 import { isEqual } from "lodash"
 import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
@@ -12,8 +12,10 @@ import { addToCart } from "@modules/cart/actions"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/option-select"
 
+import Minus from "@modules/common/icons/minus"
+import Plus from "@modules/common/icons/plus"
+import ProductInfo from "@modules/products/templates/product-info"
 import MobileActions from "../mobile-actions"
-import ProductPrice from "../product-price"
 
 type ProductActionsProps = {
   product: PricedProduct
@@ -33,6 +35,7 @@ export default function ProductActions({
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string>>({})
   const [isAdding, setIsAdding] = useState(false)
+  const [quantity, setQuantity] = useState(1)
 
   const countryCode = useParams().countryCode as string
 
@@ -116,19 +119,28 @@ export default function ProductActions({
 
     await addToCart({
       variantId: variant.id,
-      quantity: 1,
+      quantity,
       countryCode,
     })
 
     setIsAdding(false)
   }
 
+  const handleQuantityChange = (action: string) => {
+    if (action === "increase") {
+      setQuantity(quantity + 1)
+    } else if (action === "decrease" && quantity > 1) {
+      setQuantity(quantity - 1)
+    }
+  }
+
   return (
     <>
+      <ProductInfo product={product} variant={variant} region={region} />
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
         <div>
           {product.variants.length > 1 && (
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 max-w-[500px] mx-auto">
               {(product.options || []).map((option) => {
                 return (
                   <div key={option.id}>
@@ -141,37 +153,46 @@ export default function ProductActions({
                   </div>
                 )
               })}
-              <Divider />
+
             </div>
           )}
         </div>
-
-        <ProductPrice product={product} variant={variant} region={region} />
-
-        <Button
-          onClick={handleAddToCart}
-          disabled={!inStock || !variant}
-          variant="primary"
-          className="w-full h-10"
-          isLoading={isAdding}
-        >
-          {!variant
-            ? "Select variant"
-            : !inStock
-            ? "Out of stock"
-            : "Add to cart"}
-        </Button>
-        <MobileActions
-          product={product}
-          variant={variant}
-          region={region}
-          options={options}
-          updateOptions={updateOptions}
-          inStock={inStock}
-          handleAddToCart={handleAddToCart}
-          isAdding={isAdding}
-          show={!inView}
-        />
+        <div className="md:max-w-[500px] md:min-w-[500px] md:mx-auto mt-2">
+          <Text size="base" weight={"plus"} className="mb-3">
+            Quantity
+          </Text>
+          <div className="flex gap-x-4 items-center">
+            <div className="flex gap-x-2 items-center border p-2 rounded-base">
+              <button
+                className="px-3 disabled:text-gray-400"
+                onClick={() => handleQuantityChange("decrease")}
+                disabled={quantity === 1}
+              >
+                <Minus />
+              </button>
+              <div className="w-2 text-center">{quantity}</div>
+              <button
+                className="px-3"
+                onClick={() => handleQuantityChange("increase")}
+              >
+                <Plus />
+              </button>
+            </div>
+            <Button
+              onClick={handleAddToCart}
+              disabled={!inStock || !variant}
+              variant="primary"
+              className="w-full h-10"
+              isLoading={isAdding}
+            >
+              {!variant
+                ? "Select variant"
+                : !inStock
+                ? "Out of stock"
+                : "Add to cart"}
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   )
