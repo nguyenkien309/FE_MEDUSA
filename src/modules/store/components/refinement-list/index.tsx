@@ -7,9 +7,9 @@ import FilterProducts from "./filter-products"
 import SortProducts, { SortOptions } from "./sort-products"
 
 type RefinementListProps = {
-  sortBy: SortOptions
+  sortBy?: SortOptions
   search?: boolean
-  children: ReactNode
+  children?: ReactNode
 }
 
 const RefinementList = ({ sortBy, children }: RefinementListProps) => {

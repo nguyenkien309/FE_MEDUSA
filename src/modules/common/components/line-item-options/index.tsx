@@ -1,11 +1,16 @@
 import { ProductVariant } from "@medusajs/medusa"
-import { Text } from "@medusajs/ui"
+import { Text, clx } from "@medusajs/ui"
 
-type LineItemOptionsProps = { variant: ProductVariant }
+type LineItemOptionsProps = { variant: ProductVariant; className?: string }
 
-const LineItemOptions = ({ variant }: LineItemOptionsProps) => {
+const LineItemOptions = ({ variant, className }: LineItemOptionsProps) => {
   return (
-    <Text className="inline-block txt-medium md:text-[16px] text-ui-fg-subtle w-full overflow-hidden text-ellipsis">
+    <Text
+      className={clx(
+        "inline-block txt-medium md:text-[16px] text-ui-fg-subtle w-full overflow-hidden text-ellipsis",
+        className
+      )}
+    >
       Variant: {variant.title}
     </Text>
   )

@@ -5,6 +5,8 @@ import { CartWithCheckoutStep } from "types/global"
 import SignInPrompt from "../components/sign-in-prompt"
 import Divider from "@modules/common/components/divider"
 import { Customer } from "@medusajs/medusa"
+import RightIcon from "@modules/common/icons/right-icon"
+import { Heading } from "@medusajs/ui"
 
 const CartTemplate = ({
   cart,
@@ -14,11 +16,29 @@ const CartTemplate = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   return (
-    <div className="py-12">
-      <div className="content-container">
+    <div className="py- pt-8">
+      <div className="content-container small:max-w-[1281px] max-w-full medium:p-0 p-4">
         {cart?.items.length ? (
-          <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-40">
-            <div className="flex flex-col bg-white py-6 gap-y-6">
+          <div className="w-full">
+            <Heading className="text-center text-black small:text-[46px] xsmall:text-[32px] text-[28px] leading-[32px] font-normal small:mb-[60px] xsmall:mb-8 mb-6">
+              Shopping Cart
+            </Heading>
+            <div className="xsmall:flex items-center justify-start gap-3 mb-[33.25px] hidden">
+              <a
+                href="/"
+                className="text-black text-[16px] leading-[22.5px] font-normal cursor-pointer"
+              >
+                Home
+              </a>
+              <RightIcon />
+              <a
+                href="/us/cart"
+                className="text-black text-[16px] leading-[24px] font-bold cursor-pointer"
+              >
+                Your Shopping Cart
+              </a>
+            </div>
+            <div className="flex flex-col bg-white gap-y-6">
               {!customer && (
                 <>
                   <SignInPrompt />
@@ -27,17 +47,11 @@ const CartTemplate = ({
               )}
               <ItemsTemplate region={cart?.region} items={cart?.items} />
             </div>
-            <div className="relative">
-              <div className="flex flex-col gap-y-8 sticky top-12">
-                {cart && cart.region && (
-                  <>
-                    <div className="bg-white py-6">
-                      <Summary cart={cart} />
-                    </div>
-                  </>
-                )}
+            {cart && cart.region && (
+              <div className="bg-white small:py-10 py-4 w-full">
+                <Summary cart={cart} hasSubtotal={false} />
               </div>
-            </div>
+            )}
           </div>
         ) : (
           <div>

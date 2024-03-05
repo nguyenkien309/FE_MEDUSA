@@ -9,20 +9,27 @@ type LineItemPriceProps = {
   item: Omit<LineItem, "beforeInsert">
   region: Region
   style?: "default" | "tight"
+  className?: string
 }
 
 const LineItemPrice = ({
   item,
   region,
   style = "default",
+  className,
 }: LineItemPriceProps) => {
   const originalPrice =
     (item.variant as CalculatedVariant).original_price * item.quantity
   const hasReducedPrice = (item.total || 0) < originalPrice
 
   return (
-    <div className="flex flex-col gap-x-2 text-ui-fg-subtle items-end">
-      <div className="text-left">
+    <div
+      className={clx(
+        "flex flex-col gap-x-2 text-ui-fg-subtle items-end h-full",
+        className
+      )}
+    >
+      <div className="text-left h-full">
         {hasReducedPrice && (
           <>
             <p>
@@ -47,9 +54,13 @@ const LineItemPrice = ({
           </>
         )}
         <span
-          className={clx("text-base-regular text-[14px] md:text-[16px]", {
-            "text-ui-fg-interactive": hasReducedPrice,
-          })}
+          className={clx(
+            "text-base-regular text-[14px] md:text-[16px]",
+            {
+              "text-ui-fg-interactive": hasReducedPrice,
+            },
+            className
+          )}
         >
           {formatAmount({
             amount: item.total || 0,
