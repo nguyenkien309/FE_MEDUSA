@@ -113,7 +113,7 @@ export default async function Nav() {
               >
                 Store
               </LocalizedClientLink>
-              {process.env.FEATURE_SEARCH_ENABLED && (
+              {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
                   className="flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
                   href="/search"

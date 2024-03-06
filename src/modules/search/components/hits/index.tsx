@@ -25,7 +25,7 @@ const Hits = ({
   return (
     <div
       className={clx(
-        "transition-[height,max-height,opacity] duration-300 ease-in-out sm:overflow-hidden w-full sm:w-[50vw] mb-1 p-px",
+        "transition-[height,max-height,opacity] duration-300 ease-in-out  w-full mb-1 md:min-h-screen",
         className,
         {
           "max-h-full opacity-100": !!query,
