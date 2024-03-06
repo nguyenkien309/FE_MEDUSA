@@ -31,7 +31,8 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           "aspect-[11/14]": isFeatured,
           "aspect-[9/16]": !isFeatured && size !== "square",
           "aspect-[1/1]": size === "square",
-          "w-[168px] rounded-none h-auto": size === "xsmall",
+          "small:w-[168px] rounded-none h-auto max-h-[225px] xsmall:w-[100px] w-[80px]":
+            size === "xsmall",
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
           "w-[440px]": size === "large",

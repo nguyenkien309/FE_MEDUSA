@@ -1,6 +1,5 @@
 "use client"
 import { Region } from "@medusajs/medusa"
-import { Text } from "@medusajs/ui"
 
 import Link from "next/link"
 import { ProductCollectionWithPreviews } from "types/global"

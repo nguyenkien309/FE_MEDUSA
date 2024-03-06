@@ -54,7 +54,6 @@ export default async function Nav() {
                     />
                   </LocalizedClientLink>
                 )}
-
                 <CartButton />
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base text-[1rem] shrink-0"
@@ -118,20 +117,7 @@ export default async function Nav() {
             </div>
 
             <div className="flex items-center justify-end gap-5 w-full min-w[100px]">
-              <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-                <Suspense
-                  fallback={
-                    <LocalizedClientLink
-                      className="hover:text-ui-fg-base flex gap-2"
-                      href="/cart"
-                    >
-                      Cart
-                    </LocalizedClientLink>
-                  }
-                >
-                  <CartButton />
-                </Suspense>
-              </div>
+              <CartButton />
               <LocalizedClientLink
                 className="flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
                 href="/account"
