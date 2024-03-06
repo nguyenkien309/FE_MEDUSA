@@ -13,7 +13,7 @@ export default function ProductRail({
   collection: ProductCollectionWithPreviews
   region: Region
 }) {
-  const { products } = collection
+  const products = collection?.products
 
   if (!products) {
     return null

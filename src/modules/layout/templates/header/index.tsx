@@ -2,12 +2,14 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Image from "next/image"
 import SearchIcon from "/public/icons/search.svg"
 import AccountIcon from "/public/icons/account.svg"
-import CartIcon from "/public/icons/cart.svg"
 
 import { getCustomer } from "@lib/data"
+import { Suspense } from "react"
+import CartButton from "@modules/layout/components/cart-button"
 
 export default async function Nav() {
   const customer = await getCustomer()
+
   return (
     <nav className="border-t border-ui-border-base w-full min-w-[330px]">
       <div className="flex flex-col justify-center items-center">
@@ -52,12 +54,8 @@ export default async function Nav() {
                     />
                   </LocalizedClientLink>
                 )}
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base text-[1rem] shrink-0"
-                  href="/cart"
-                >
-                  <Image src={CartIcon} alt="cart" width={18} height={20} />
-                </LocalizedClientLink>
+
+                <CartButton />
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base text-[1rem] shrink-0"
                   href="/account"
@@ -72,15 +70,10 @@ export default async function Nav() {
                 </LocalizedClientLink>
               </div>
 
-              <div className="sm:hidden flex items-center justify-end gap-5 w-full">
+              <div className="sm:hidden flex items-center justify-end gap-10 w-full">
+                <CartButton />
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base text-[1rem] "
-                  href="/cart"
-                >
-                  <Image src={CartIcon} alt="cart" width={18} height={20} />
-                </LocalizedClientLink>
-                <LocalizedClientLink
-                  className="w-full rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base"
+                  className="max-w-[100px] rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base"
                   href="/account"
                 >
                   Sign in
@@ -125,12 +118,20 @@ export default async function Nav() {
             </div>
 
             <div className="flex items-center justify-end gap-5 w-full min-w[100px]">
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base text-[1rem] "
-                href="/cart"
-              >
-                <Image src={CartIcon} alt="cart" width={18} height={20} />
-              </LocalizedClientLink>
+              <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
+                <Suspense
+                  fallback={
+                    <LocalizedClientLink
+                      className="hover:text-ui-fg-base flex gap-2"
+                      href="/cart"
+                    >
+                      Cart
+                    </LocalizedClientLink>
+                  }
+                >
+                  <CartButton />
+                </Suspense>
+              </div>
               <LocalizedClientLink
                 className="flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
                 href="/account"
