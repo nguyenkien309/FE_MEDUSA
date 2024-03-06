@@ -14,12 +14,8 @@ const Overview = ({ customer, orders }: OverviewProps) => {
   return (
     <div>
       <div className="hidden small:block">
-        <div className="text-xl-semi flex justify-between items-center mb-4">
-          <span>Hello {customer?.first_name}</span>
-          <span className="text-small-regular text-ui-fg-base">
-            Signed in as:{" "}
-            <span className="font-semibold">{customer?.email}</span>
-          </span>
+        <div className="text-xl-semi flex justify-center items-center mb-4 ">
+          {/* <span>Hello {customer?.first_name}</span> */}
         </div>
         <div className="flex flex-col py-8 border-t border-gray-200">
           <div className="flex flex-col gap-y-4 h-full col-span-1 row-span-2 flex-1">

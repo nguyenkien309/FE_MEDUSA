@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { Region } from "@medusajs/medusa"
 import { Text } from "@medusajs/ui"
 
@@ -21,9 +21,7 @@ export default function ProductRail({
 
   return (
     <div className="content-container py-8 small:py-12">
-      <div className="flex justify-between mb-8">
-      
-      </div>
+      <div className="flex justify-between mb-8"></div>
       <ul className="grid md:grid-cols-3 grid-cols-2 gap-x-2 md:gap-x-6 md:gap-y-24 gap-y-4">
         {products &&
           products.map((product) => (
@@ -36,13 +34,13 @@ export default function ProductRail({
             </li>
           ))}
       </ul>
-     <div className="items-center py-4">
-      <Link href={`/collections/${collection.handle}`}>
-      <button className="bg-black text-white font-volkhov w-[207px] h-14 text-base rounded-md ">
-          View all
-      </button>
+      <div className="items-center py-4">
+        <Link href={`/collections/${collection.handle}`}>
+          <button className="bg-black text-white font-volkhov w-[207px] h-14 text-base rounded-md ">
+            View all
+          </button>
         </Link>
-     </div>
+      </div>
     </div>
   )
 }

@@ -25,12 +25,12 @@ const AccountNav = ({
   }
 
   return (
-    <div>
+    <div className="lg:ml-16 ">
       <div className="small:hidden">
         {route !== `/${countryCode}/account` ? (
           <LocalizedClientLink
             href="/account"
-            className="flex items-center gap-x-2 text-small-regular py-2"
+            className="flex items-center gap-x-2 text-small-regular py-2 ml-0"
           >
             <>
               <ChevronDown className="transform rotate-90" />
@@ -109,11 +109,11 @@ const AccountNav = ({
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
-              <li>
+              {/* <li>
                 <AccountNavLink href="/account" route={route!}>
                   Overview
                 </AccountNavLink>
-              </li>
+              </li> */}
               <li>
                 <AccountNavLink href="/account/profile" route={route!}>
                   Profile

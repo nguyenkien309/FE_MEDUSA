@@ -4,6 +4,8 @@ import { useEffect } from "react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import { useFormStatus } from "react-dom"
+import Image from "next/image"
+import EditIcon from "/public/icons/edit.svg"
 
 type AccountInfoProps = {
   label: string
@@ -43,8 +45,13 @@ const AccountInfo = ({
     <div className="text-small-regular">
       <div className="flex items-end justify-between">
         <div className="flex flex-col">
-          <span className="uppercase text-ui-fg-base">{label}</span>
-          <div className="flex items-center flex-1 basis-0 justify-end gap-x-4">
+          <span
+            className="uppercase text-ui-fg-base font-bold text-base"
+            style={{ fontFamily: "Volkhov" }}
+          >
+            {label}
+          </span>
+          <div className="flex items-center flex-1 basis-0 justify-start gap-x-4">
             {typeof currentInfo === "string" ? (
               <span className="font-semibold">{currentInfo}</span>
             ) : (
@@ -54,13 +61,25 @@ const AccountInfo = ({
         </div>
         <div>
           <Button
+            variant="transparent"
+            className="w-[100px] min-h-[25px] py-1 border-inherit bg-transparent"
+            onClick={handleToggle}
+            type={state ? "reset" : "button"}
+          >
+            <Image
+              src={EditIcon}
+              alt="Instagram icon"
+              className="w-[16px] h-[16px] object-cover bg-center"
+            />
+          </Button>
+          {/* <Button
             variant="secondary"
             className="w-[100px] min-h-[25px] py-1"
             onClick={handleToggle}
             type={state ? "reset" : "button"}
           >
             {state ? "Cancel" : "Edit"}
-          </Button>
+          </Button> */}
         </div>
       </div>
 
