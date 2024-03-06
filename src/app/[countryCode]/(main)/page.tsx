@@ -11,6 +11,7 @@ import PeakiBlinber from "@modules/home/components/peaky-blinders"
 import Brands from "@modules/home/components/brands"
 import ScrollToTop from "@modules/home/components/scroll-to-top"
 import ReviewSlider from "@modules/home/components/what-customers-say"
+import Slider2 from "@modules/home/components/what-customers-say/slider-2"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -81,7 +82,7 @@ export default async function Home({
       <ul className="flex flex-col gap-x-6 bg-[#FAFAFA]">
         <FeaturedProducts collections={collections} region={region} />
       </ul>
-      <ReviewSlider />
+      <Slider2 />
       <ScrollToTop />
     </>
   )

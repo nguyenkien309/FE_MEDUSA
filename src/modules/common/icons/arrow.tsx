@@ -3,14 +3,14 @@ import React from "react"
 import { IconProps } from "types/icon"
 
 const ArrowIcon: React.FC<IconProps> = ({
-  size = "16",
+  size = "2",
   color = "currentColor",
   ...attributes
 }) => {
   return (
     <svg
-      width="9"
-      height="16"
+      width="4"
+      height="4"
       viewBox="0 0 9 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

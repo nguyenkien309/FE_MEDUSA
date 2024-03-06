@@ -58,7 +58,7 @@ const ReviewSlider = () => {
             `}
             onClick={handleClickPre}
           >
-            <ArrowIcon />
+            <ArrowIcon  />
           </div>
           <div
             className={`bg-white flex items-center justify-center w-12 h-12 rounded-full cursor-pointer shadow-arrow rotate-180  ${
