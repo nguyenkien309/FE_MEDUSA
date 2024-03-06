@@ -1,6 +1,5 @@
 "use client"
 import { Region } from "@medusajs/medusa"
-import { Text } from "@medusajs/ui"
 
 import Link from "next/link"
 import { ProductCollectionWithPreviews } from "types/global"
@@ -13,7 +12,7 @@ export default function ProductRail({
   collection: ProductCollectionWithPreviews
   region: Region
 }) {
-  const { products } = collection
+  const products = collection?.products
 
   if (!products) {
     return null
