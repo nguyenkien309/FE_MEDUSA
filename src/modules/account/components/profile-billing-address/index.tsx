@@ -80,7 +80,11 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   }, [customer, regionOptions])
 
   return (
-    <form action={formAction} onReset={() => clearState()} className="w-full">
+    <form
+      action={formAction}
+      onReset={() => clearState()}
+      className="w-full text-left"
+    >
       <AccountInfo
         label="Billing address"
         currentInfo={currentInfo}
@@ -173,5 +177,4 @@ const mapBillingAddressToFormData = ({ customer }: MyInformationProps) => {
     },
   }
 }
-
 export default ProfileBillingAddress

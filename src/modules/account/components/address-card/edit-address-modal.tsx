@@ -95,20 +95,18 @@ const EditAddress: React.FC<EditAddressProps> = ({
             </span>
           </Text>
         </div>
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center justify-end gap-x-4">
           <button
             className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
             onClick={open}
           >
             <Edit />
-            Edit
           </button>
           <button
             className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
             onClick={removeAddress}
           >
             {removing ? <Spinner /> : <Trash />}
-            Remove
           </button>
         </div>
       </div>
