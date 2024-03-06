@@ -1,7 +1,7 @@
 "use client"
 
 import { Order } from "@medusajs/medusa"
-import { Button } from "@medusajs/ui"
+import { Button, Table } from "@medusajs/ui"
 
 import OrderCard from "../order-card"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -9,15 +9,35 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const OrderOverview = ({ orders }: { orders: Order[] }) => {
   if (orders?.length) {
     return (
-      <div className="flex flex-col gap-y-8 w-full">
-        {orders.map((o) => (
-          <div
-            key={o.id}
-            className="border-b border-gray-200 pb-6 last:pb-0 last:border-none"
-          >
-            <OrderCard order={o} />
-          </div>
-        ))}
+      <div className="flex flex-col ">
+        <Table>
+          <Table.Header>
+            <Table.Row className="bg-[#F5F5F5]">
+              <Table.HeaderCell
+                className="text-left"
+                colSpan={2}
+                style={{ padding: 0 }}
+              >
+                Product
+              </Table.HeaderCell>
+              <Table.HeaderCell className="text-center">
+                Quantity
+              </Table.HeaderCell>
+              <Table.HeaderCell className="text-center">Price</Table.HeaderCell>
+              <Table.HeaderCell
+                className="text-center"
+                style={{ paddingRight: "0px" }}
+              >
+                status
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {orders.map((item) => {
+              return <OrderCard key={item.id} order={item} />
+            })}
+          </Table.Body>
+        </Table>
       </div>
     )
   }

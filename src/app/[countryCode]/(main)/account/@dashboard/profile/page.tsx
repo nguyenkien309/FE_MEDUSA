@@ -23,10 +23,12 @@ export default async function Profile() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#F5F5F5] p-5 ">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Profile</h1>
-        <p className="text-base-regular">
+        <h1 className=" text-4xl font-bold" style={{ fontFamily: "Volkhov" }}>
+          Profile
+        </h1>
+        <p className="text-base-regular" style={{ fontFamily: "Volkhov" }}>
           View and update your profile information, including your name, email,
           and phone number. You can also update your billing address, or change
           your password.
