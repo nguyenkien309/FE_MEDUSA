@@ -315,3 +315,56 @@ The middleware also sets a cookie based on the onboarding status of a user. This
 
 ```npm run dev
 ```
+
+
+
+Enable search on local host
+BE:
+  - install plugin medusa-plugin-meilisearch (npm install medusa-plugin-meilisearch)
+  - Update file medusa-config.js:
+
+        {
+          resolve: `medusa-plugin-meilisearch`,
+          options: {
+            // config object passed when creating an instance
+            // of the MeiliSearch client
+            config: {
+              host: process.env.MEILISEARCH_HOST,
+              apiKey: process.env.MEILISEARCH_API_KEY,
+            },
+            settings: {
+              products: {
+                indexSettings: {
+                  searchableAttributes: [
+                    "title", 
+                    "description",
+                    "variant_sku",
+                  ],
+                  displayedAttributes: [
+                    "id", 
+                    "title", 
+                    "description", 
+                    "variant_sku", 
+                    "thumbnail", 
+                    "handle",
+                  ],
+                },
+                primaryKey: "id",
+              },
+            },
+          },
+        },
+
+Run meilisearch on localhost:
+- use docker: 
+  + pull meilisearch image ----->   docker pull getmeili/meilisearch:v1.6
+  + run onlocalhost: ----> sudo docker run -it --rm -p 7700:7700 -v $(123456)/meili_data:/meili_data getmeili/meilisearch:v1.6
+(If you get any errors, please check: https://www.meilisearch.com/docs/learn/getting_started/installation)
+
+FE:
+ - update ENV: NEXT_PUBLIC_FEATURE_SEARCH_ENABLED=true
+ - NEXT_PUBLIC_SEARCH_APP_ID=
+ - NEXT_PUBLIC_SEARCH_ENDPOINT=http://127.0.0.1:7700
+ - NEXT_PUBLIC_SEARCH_API_KEY=
+ - NEXT_PUBLIC_INDEX_NAME=products
+ 
