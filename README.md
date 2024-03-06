@@ -321,6 +321,9 @@ The middleware also sets a cookie based on the onboarding status of a user. This
 Enable search on local host
 BE:
   - install plugin medusa-plugin-meilisearch (npm install medusa-plugin-meilisearch)
+  - update ENV: 
+          + MEILISEARCH_HOST=http://127.0.0.1:7700
+          + MEILISEARCH_API_KEY=
   - Update file medusa-config.js:
 
         {
