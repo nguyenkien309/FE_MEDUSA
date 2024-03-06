@@ -22,21 +22,14 @@ type HitProps = {
 const Hit = ({ hit }: HitProps) => {
   return (
     <LocalizedClientLink href={`/products/${hit.handle}`}>
-      <Container
-        key={hit.id}
-        className="flex sm:flex-col gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover items-center sm:justify-center"
-      >
+      <div className="flex flex-row md:flex-col">
         <Thumbnail
           thumbnail={hit.thumbnail}
           size="square"
-          className="group h-12 w-12 sm:h-full sm:w-full"
+          className="group rounded-none h-28 w-28 sm:h-80 sm:w-80"
         />
-        <div className="flex flex-col justify-between group">
-          <div className="flex flex-col">
-            <Text className="text-ui-fg-subtle">{hit.title}</Text>
-          </div>
-        </div>
-      </Container>
+          <p className="pl-4 md:pl-0 md:text-base text-sm md:pt-4 text-left">{hit.title}</p>
+      </div>
     </LocalizedClientLink>
   )
 }
