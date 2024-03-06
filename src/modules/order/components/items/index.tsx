@@ -15,6 +15,27 @@ const Items = ({ items, region }: ItemsProps) => {
     <div className="flex flex-col">
       <Divider className="!mb-0" />
       <Table>
+        <Table.Header>
+          <Table.Row className="bg-[#F5F5F5]">
+            <Table.HeaderCell
+              className="text-left"
+              colSpan={2}
+              style={{ padding: 0 }}
+            >
+              Product
+            </Table.HeaderCell>
+            <Table.HeaderCell className="text-center">Price</Table.HeaderCell>
+            <Table.HeaderCell className="text-center">
+              Quantity
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              className="text-center"
+              style={{ paddingRight: "0px" }}
+            >
+              Total
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
         <Table.Body>
           {items?.length && region
             ? items

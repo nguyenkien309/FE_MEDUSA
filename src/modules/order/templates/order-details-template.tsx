@@ -19,7 +19,7 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
   order,
 }) => {
   return (
-    <div className="flex flex-col justify-center gap-y-4">
+    <div className="flex flex-col justify-center gap-y-4 bg-[#F5F5F5] p-5">
       <div className="flex gap-2 justify-between items-center">
         <h1 className="text-2xl-semi">Order details</h1>
         <LocalizedClientLink
@@ -29,12 +29,13 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
           <XMark /> Back to overview
         </LocalizedClientLink>
       </div>
-      <div className="flex flex-col gap-4 h-full bg-white w-full">
-        <OrderDetails order={order} showStatus />
+      <div className="flex flex-col gap-4 h-full bg-[#F5F5F5] w-full">
+        <span className=" text-base">
+          View your previous orders and their status. You can also create
+          returns or exchanges for your orders if needed.
+        </span>
         <Items items={order.items} region={order.region} />
-        <ShippingDetails order={order} />
         <OrderSummary order={order} />
-        <Help />
       </div>
     </div>
   )
