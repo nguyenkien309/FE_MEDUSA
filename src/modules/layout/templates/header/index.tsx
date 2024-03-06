@@ -27,7 +27,7 @@ export default async function Nav() {
               <div className="hidden sm:flex items-center justify-center gap-20 shrink-0">
                 <LocalizedClientLink
                   className="hidden lg:flex hover:text-ui-fg-base text-[1rem]"
-                  href="/account"
+                  href="/"
                 >
                   Home
                 </LocalizedClientLink>
@@ -103,7 +103,7 @@ export default async function Nav() {
             <div className="hidden md:flex flex-row text-center align-middle items-center justify-center gap-20 shrink-0">
               <LocalizedClientLink
                 className="flex hover:text-ui-fg-base text-[1rem]"
-                href="/account"
+                href="/"
               >
                 Home
               </LocalizedClientLink>

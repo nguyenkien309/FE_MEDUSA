@@ -18,21 +18,21 @@ export default async function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end flex-grow mt-4 sm:mt-0">
           <LocalizedClientLink
             className="hover:text-ui-fg-base text-[1rem] mb-2 sm:mb-0 sm:mr-10"
-            href="/account"
+            href="/"
           >
             Home
           </LocalizedClientLink>
 
           <LocalizedClientLink
             className="hover:text-ui-fg-base text-[1rem] mb-2 sm:mb-0 sm:mr-10"
-            href="/store"
+            href="/contact"
           >
             Contact us
           </LocalizedClientLink>
 
           <LocalizedClientLink
             className="hover:text-ui-fg-base text-[1rem] mb-2 sm:mb-0"
-            href="/account"
+            href="/about"
           >
             About us
           </LocalizedClientLink>
