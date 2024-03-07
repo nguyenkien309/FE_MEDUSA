@@ -1,13 +1,14 @@
+import { LineItem } from "@medusajs/medusa"
 import { Metadata } from "next"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
-import { LineItem } from "@medusajs/medusa"
 
+import { getCart } from "@lib/data"
 import { enrichLineItems } from "@modules/cart/actions"
 import Wrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
-import { getCart } from "@lib/data"
+import Divider from "@modules/common/components/divider"
 
 export const metadata: Metadata = {
   title: "Checkout",
@@ -38,11 +39,17 @@ export default async function Checkout() {
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-x-40 py-12">
-      <Wrapper cart={cart}>
-        <CheckoutForm />
-      </Wrapper>
-      <CheckoutSummary />
-    </div>
+    <>
+      <h1 className="text-center text-3xl font-normal mt-8 mb-4">
+        BHShop Demo Checkout
+      </h1>
+      <Divider/>
+      <div className="grid grid-cols-1 md:grid-cols-2 content-container gap-x-40 py-12">
+        <Wrapper cart={cart}>
+          <CheckoutForm />
+        </Wrapper>
+        <CheckoutSummary />
+      </div>
+    </>
   )
 }

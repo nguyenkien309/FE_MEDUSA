@@ -1,15 +1,13 @@
-import Addresses from "@modules/checkout/components/addresses"
-import Shipping from "@modules/checkout/components/shipping"
-import Payment from "@modules/checkout/components/payment"
-import Review from "@modules/checkout/components/review"
 import {
   createPaymentSessions,
-  getCustomer,
-  listShippingMethods,
+  listShippingMethods
 } from "@lib/data"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
+import Addresses from "@modules/checkout/components/addresses"
+import Payment from "@modules/checkout/components/payment"
+import Shipping from "@modules/checkout/components/shipping"
 import { cookies } from "next/headers"
 import { CartWithCheckoutStep } from "types/global"
-import { getCheckoutStep } from "@lib/util/get-checkout-step"
 
 export default async function CheckoutForm() {
   const cartId = cookies().get("_medusa_cart_id")?.value
@@ -38,29 +36,21 @@ export default async function CheckoutForm() {
     return null
   }
 
-  // get customer if logged in
-  const customer = await getCustomer()
 
   return (
     <div>
       <div className="w-full grid grid-cols-1 gap-y-8">
         <div>
-          <Addresses cart={cart} customer={customer} />
+          <Addresses cart={cart} />
         </div>
-
         <div>
           <Shipping
             cart={cart}
             availableShippingMethods={availableShippingMethods}
           />
         </div>
-
         <div>
           <Payment cart={cart} />
-        </div>
-
-        <div>
-          <Review cart={cart} />
         </div>
       </div>
     </div>

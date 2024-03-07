@@ -64,7 +64,7 @@ const FilterRadioGroup = ({
                 {index === 0 && (
                 <Image
                   width={30}
-                  layout="response"
+                  layout="static"
                   src={NewIcon}
                   alt={`New icon`}
                 />

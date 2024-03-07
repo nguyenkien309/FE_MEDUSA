@@ -1,18 +1,18 @@
 "use client"
 
 import { RadioGroup } from "@headlessui/react"
-import { CheckCircleSolid } from "@medusajs/icons"
+import { formatAmount } from "@lib/util/prices"
 import { Cart } from "@medusajs/medusa"
 import { PricedShippingOption } from "@medusajs/medusa/dist/types/pricing"
-import { Button, Heading, Text, clx, useToggleState } from "@medusajs/ui"
-import { formatAmount } from "@lib/util/prices"
+import { Button, Heading, Text, clx } from "@medusajs/ui"
 
+import { setShippingMethod } from "@modules/checkout/actions"
+import ErrorMessage from "@modules/checkout/components/error-message"
 import Divider from "@modules/common/components/divider"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Radio from "@modules/common/components/radio"
 import Spinner from "@modules/common/icons/spinner"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { setShippingMethod } from "@modules/checkout/actions"
-import { useRouter, useSearchParams, usePathname } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 type ShippingProps = {
@@ -31,11 +31,7 @@ const Shipping: React.FC<ShippingProps> = ({
   const router = useRouter()
   const pathname = usePathname()
 
-  const isOpen = searchParams.get("step") === "delivery"
-
-  const handleEdit = () => {
-    router.push(pathname + "?step=delivery", { scroll: false })
-  }
+  const isOpen = searchParams.get("step") === "shipping"
 
   const handleSubmit = () => {
     setIsLoading(true)
@@ -65,36 +61,29 @@ const Shipping: React.FC<ShippingProps> = ({
 
   return (
     <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
+      <div className="flex flex-row items-center justify-between">
         <Heading
           level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
-              "opacity-50 pointer-events-none select-none":
-                !isOpen && cart.shipping_methods.length === 0,
-            }
-          )}
+          className="flex flex-row text-2xl gap-x-2 items-baseline text-gray-600"
         >
-          Delivery
-          {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid />}
+          Shipping
         </Heading>
         {!isOpen &&
           cart?.shipping_address &&
           cart?.billing_address &&
           cart?.email && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-              >
-                Edit
-              </button>
-            </Text>
+            <LocalizedClientLink
+              href="/checkout?step=shipping"
+              passHref
+              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+            >
+              Edit
+            </LocalizedClientLink>
           )}
       </div>
+      <Divider />
       {isOpen ? (
-        <div>
+        <div className="mt-6">
           <div className="pb-8">
             <RadioGroup
               value={cart.shipping_methods[0]?.shipping_option_id}
@@ -146,7 +135,7 @@ const Shipping: React.FC<ShippingProps> = ({
 
           <Button
             size="large"
-            className="mt-6"
+            className="w-full"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={!cart.shipping_methods[0]}
@@ -178,7 +167,6 @@ const Shipping: React.FC<ShippingProps> = ({
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
     </div>
   )
 }

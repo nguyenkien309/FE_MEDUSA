@@ -2,18 +2,17 @@
 
 import { LineItem, Region } from "@medusajs/medusa"
 import { Table, Text, clx } from "@medusajs/ui"
+import { updateLineItem } from "@modules/cart/actions"
+import ErrorMessage from "@modules/checkout/components/error-message"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LineItemUnitPrice from "@modules/common/components/line-item-unit-price"
-import Thumbnail from "@modules/products/components/thumbnail"
-import { updateLineItem } from "@modules/cart/actions"
-import Spinner from "@modules/common/icons/spinner"
-import { useEffect, useState } from "react"
-import ErrorMessage from "@modules/checkout/components/error-message"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import IncreaseIcon from "@modules/common/icons/increase-icon"
 import DecreaseIcon from "@modules/common/icons/decrease-icon"
+import IncreaseIcon from "@modules/common/icons/increase-icon"
+import Thumbnail from "@modules/products/components/thumbnail"
+import { useEffect, useState } from "react"
 
 type ItemProps = {
   item: Omit<LineItem, "beforeInsert">
@@ -50,8 +49,8 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count])
   return (
-    <Table.Row className="w-full">
-      <Table.Cell className="!pl-0 small:p-[35px] small:pb-[44px] xsmall:p-4 p-2 w-24">
+    <Table.Row className={clx("w-full", { "bg-[#F5F5F5]": type === "preview" })}>
+      <Table.Cell className={clx("!pl-0 small:p-[35px] small:pb-[44px]", { " xsmall:p-4 p-2 w-24": type === "preview" })}>
         <LocalizedClientLink
           href={`/products/${handle}`}
           className={clx("flex", {
@@ -116,17 +115,6 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             "flex flex-col items-start justify-start": type === "preview",
           })}
         >
-          {type === "preview" && (
-            <div className="flex gap-x-1 h-full">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
-              <LineItemUnitPrice
-                item={item}
-                region={region}
-                style="tight"
-                className="block"
-              />
-            </div>
-          )}
           <LineItemPrice
             item={item}
             region={region}

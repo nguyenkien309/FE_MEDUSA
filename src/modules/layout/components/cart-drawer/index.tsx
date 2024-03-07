@@ -1,21 +1,21 @@
 "use client"
 
+import { formatAmount } from "@lib/util/prices"
 import { Cart } from "@medusajs/medusa"
 import { Button } from "@medusajs/ui"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import CartIcon from "/public/icons/cart.svg"
+import { updateLineItem } from "@modules/cart/actions"
+import ErrorMessage from "@modules/checkout/components/error-message"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Thumbnail from "@modules/products/components/thumbnail"
 import DecreaseIcon from "@modules/common/icons/decrease-icon"
 import IncreaseIcon from "@modules/common/icons/increase-icon"
-import { updateLineItem } from "@modules/cart/actions"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { formatAmount } from "@lib/util/prices"
-import CancelIcon from "/public/icons/cancel.svg"
+import Thumbnail from "@modules/products/components/thumbnail"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 import { useToggleCart } from "./hooks/useToggleCart"
+import CancelIcon from "/public/icons/cancel.svg"
+import CartIcon from "/public/icons/cart.svg"
 interface dataChange {
   quantity?: number
   lineId?: string
@@ -228,7 +228,7 @@ const CartDrawer = ({
               )}
               {cartState && cartState.items?.length > 0 && (
                 <LocalizedClientLink
-                  href="/checkout?step=address"
+                  href="/checkout?step=delivery"
                   passHref
                   className="w-full max-w-[610px] mb-[14px] !ml-0"
                 >
