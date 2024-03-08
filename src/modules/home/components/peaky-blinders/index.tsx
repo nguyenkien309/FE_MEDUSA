@@ -40,7 +40,7 @@ const PeakiBlinber = () => {
           </Button>
         </div>
         <p className="text-2xl">$100.00</p>
-        <Link href={'/products/medusa-t-shirt'}>
+        <Link href={'/products/t-shirt'}>
         <Button className="text-white  rounded-[10px] w-[207px] h-[56px] justify-center items-center flex font-volkhov ">
           Buy Now
         </Button>

@@ -62,7 +62,7 @@ export default async function Nav() {
                   Sign in
                 </LocalizedClientLink>
                 <LocalizedClientLink
-                  className="w-full rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base"
+                  className="w-full rounded-[10px] hover:text-ui-fg-base bg-black text-white text-center px-2 py-4 hover:text-white text-base whitespace-nowrap"
                   href="/account"
                 >
                   Sign Up

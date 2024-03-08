@@ -3,7 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 export default async function Footer() {
   return (
-    <footer className="footer-container max-w-[86rem] mx-auto p-9 border-t border-gray-300">
+    <footer className="footer-container max-w-[86rem] mx-auto p-9 border-t border-gray-300 mt-3">
       <div className="content-container flex flex-col sm:flex-row items-center text-small-regular max-w-[86rem]">
         <LocalizedClientLink
           href="/"
