@@ -9,7 +9,7 @@ import UltimateSaleText from "/public/images/home/ultimate-sale-text.png"
 import Link from "next/link"
 const Hero = () => {
   return (
-    <div className="container mx-auto border-ui-border-base justify-between flex md:flex-row flex-col gap-6">
+    <div className="content-container mx-auto border-ui-border-base justify-between flex md:flex-row flex-col gap-6">
       <div>
         <img src={ImageBanner1.src} className="w-full" alt="" />
       </div>
