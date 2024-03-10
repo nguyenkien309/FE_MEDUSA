@@ -80,7 +80,8 @@ const Slider2 = () => {
   }, [])
 
   return (
-    <div className="gallery container mx-auto">
+    <div className="overflow-hidden content-container md:mx-auto mx-4">
+      <div className="gallery mx-auto">
       <div id="slider" className="slider"></div>
       <div className="arrows">
         <div
@@ -95,6 +96,8 @@ const Slider2 = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   )
 }
 export default Slider2

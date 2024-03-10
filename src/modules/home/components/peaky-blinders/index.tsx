@@ -9,7 +9,7 @@ import Link from "next/link"
 const PeakiBlinber = () => {
   const mobile = useMobileScreen()
   return (
-    <div className="bg-[#DADADA] flex flex-col md:flex-row font-volkhov mx-auto">
+    <div className="bg-[#DADADA] flex flex-col md:flex-row font-volkhov mx-auto content-container">
       <div className="">
         <Image
           src={mobile ? PeakiBlidersImageMobile.src : PeakiBlidersImage.src}
@@ -40,11 +40,13 @@ const PeakiBlinber = () => {
           </Button>
         </div>
         <p className="text-2xl">$100.00</p>
-        <Link href={'/products/t-shirt'}>
-        <Button className="text-white  rounded-[10px] w-[207px] h-[56px] justify-center items-center flex font-volkhov ">
-          Buy Now
-        </Button>
+        <div className="my-2">
+        <Link href={"/products/t-shirt"}>
+          <Button className="text-white  rounded-[10px] w-[207px] h-[56px] justify-center items-center flex font-volkhov ">
+            Buy Now
+          </Button>
         </Link>
+        </div>
       </div>
     </div>
   )
