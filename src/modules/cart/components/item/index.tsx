@@ -49,8 +49,17 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count])
   return (
-    <Table.Row className={clx("w-full", { "bg-[#F5F5F5]": type === "preview" })}>
-      <Table.Cell className={clx("!pl-0 small:p-[35px] small:pb-[44px]", { " xsmall:p-4 p-2 w-24": type === "preview" })}>
+    <Table.Row
+      className={clx("w-full", { "bg-[#F5F5F5]": type === "preview" })}
+    >
+      <Table.Cell
+        className={clx(
+          "!pl-0 small:p-[35px] small:pb-[44px] xsmall:py-4 py-2",
+          {
+            " xsmall:p-4 p-2 w-24": type === "preview",
+          }
+        )}
+      >
         <LocalizedClientLink
           href={`/products/${handle}`}
           className={clx("flex", {
@@ -77,12 +86,12 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             item={item}
             region={region}
             style="tight"
-            className="block small:!text-[22px] font-normal text-black"
+            className="block small:!text-[22px] leading-8 font-normal text-black"
           />
         </Table.Cell>
       )}
       {type === "full" && (
-        <Table.Cell className="flex h-auto">
+        <Table.Cell className="flex h-auto small:pt-[35px] xsmall:pt-4 pt-2">
           <div className="flex gap-2 items-center w-full flex-wrap 2xsmall:justify-center xsmall:justify-normal">
             <div className="max-w-[119px] w-full small:h-[41.3px] h-auto flex items-center justify-between border border-[#8A8A8A] rounded-[3.5px]">
               <button
@@ -92,8 +101,8 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
               >
                 <DecreaseIcon />
               </button>
-              <p className="sm:text-[25px] text-[18px] font-normal leading-[32.28px]">
-                {item.quantity}
+              <p className="sm:text-[25.02px] text-[18px] font-normal leading-[32.28px] text-[#8A8A8A]">
+                {item.quantity < 10 ? `0${item.quantity}` : item.quantity}
               </p>
               <button
                 disabled={updating}
@@ -119,7 +128,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             item={item}
             region={region}
             style="tight"
-            className="small:text-[22px] text-[16px] font-normal leading-[32px] text-black h-full"
+            className="small:text-[22px] text-[16px] leading-8 font-normal text-black h-full"
           />
         </div>
       </Table.Cell>

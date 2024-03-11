@@ -9,12 +9,13 @@ import { CartWithCheckoutStep } from "types/global"
 type SummaryProps = {
   cart: CartWithCheckoutStep
   hasSubtotal?: boolean
+  hasTotal?: boolean
 }
 
-const Summary = ({ cart, hasSubtotal }: SummaryProps) => {
+const Summary = ({ cart, hasSubtotal, hasTotal }: SummaryProps) => {
   return (
     <div className="flex flex-col small:gap-y-[29px] gap-y-4 w-full">
-      <CartTotals data={cart} hasSubtotal={hasSubtotal} />
+      <CartTotals data={cart} hasSubtotal={hasSubtotal} hasTotal={hasTotal} />
       <LocalizedClientLink
         href={
           "/checkout?step=" +
