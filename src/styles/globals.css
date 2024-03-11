@@ -174,12 +174,6 @@ body {
   width: 100%;
   height: 100%;
 }
-body {
-  display: grid;
-  place-items: center;
-  /* overflow: hidden; */
-  /* background: #131313; */
-}
 .gallery {
   max-width: 800px;
   width: 100%;
@@ -259,6 +253,7 @@ body {
   display: flex;
   justify-content: center;
   z-index: 4;
+  margin-bottom: 20px;
 }
 .arrows .left,
 .arrows .right {
@@ -278,22 +273,6 @@ body {
   height: 4px;
   transform: translateY(-50%);
 }
-.arrows .left:before {
-  right: -100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-}
-.arrows .right::before {
-  left: -100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1)
-  );
-}
 .arrows svg {
   width: 7px;
   height: 14px;
@@ -301,4 +280,15 @@ body {
 }
 img {
   border-radius: 6px;
+}
+@media screen and (max-width: 767.98px) {
+  .wrapper:has(+ .selected) {
+    transform: translate3d(-35%, -50%, 0) scale(0.4);
+  }
+  .selected + .wrapper {
+    transform: translate3d(-25%, -50%, 0) scale(2.2);
+  }
+  .gallery {
+    height: 320px;
+  }
 }

@@ -4,15 +4,15 @@ import PeakiBlidersImage from "/public/images/home/peaky-blinder-girl.png"
 import PeakiBlidersImageMobile from "/public/images/home/peaky-blinder-girl-mobile.png"
 
 import { Button } from "@medusajs/ui"
-import { useMobileScreen } from "@lib/hooks/use-mobile"
+import { useMobileScreen, useWindowSize } from "@lib/hooks/use-mobile"
 import Link from "next/link"
 const PeakiBlinber = () => {
-  const mobile = useMobileScreen()
+  const { width } = useWindowSize()
   return (
     <div className="bg-[#DADADA] flex flex-col md:flex-row font-volkhov mx-auto">
-      <div className="">
+      <div className="items-center flex justify-center">
         <Image
-          src={mobile ? PeakiBlidersImageMobile.src : PeakiBlidersImage.src}
+          src={width < 1440  ? PeakiBlidersImageMobile.src : PeakiBlidersImage.src}
           width={1050}
           height={750}
           alt=""
@@ -40,11 +40,13 @@ const PeakiBlinber = () => {
           </Button>
         </div>
         <p className="text-2xl">$100.00</p>
-        <Link href={'/products/t-shirt'}>
-        <Button className="text-white  rounded-[10px] w-[207px] h-[56px] justify-center items-center flex font-volkhov ">
-          Buy Now
-        </Button>
+        <div className="my-2">
+        <Link href={"/products/t-shirt"}>
+          <Button className="text-white  rounded-[10px] w-[207px] h-[56px] justify-center items-center flex font-volkhov ">
+            Buy Now
+          </Button>
         </Link>
+        </div>
       </div>
     </div>
   )

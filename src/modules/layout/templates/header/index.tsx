@@ -10,10 +10,10 @@ export default async function Nav() {
   const customer = await getCustomer()
 
   return (
-    <nav className="border-t border-ui-border-base w-full min-w-[330px] content-container mx-auto">
-      <div className="flex flex-col justify-center items-center">
+    <nav className="border-t border-ui-border-base w-full min-w-[330px] content-container">
+      <div className="flex flex-col justify-center items-center w-full">
         {!customer ? (
-          <div className="flex flex-row w-full items-center py-5 md:px-0 px-4 max-w-[80rem]">
+          <div className="flex flex-row w-full items-center py-5 ">
             <div className="flex-grow sm:flex-grow-0">
               <LocalizedClientLink
                 href="/"
@@ -80,7 +80,7 @@ export default async function Nav() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 w-full ">
             <div className="flex justify-start w-full text-center">
               <LocalizedClientLink
                 href="/"

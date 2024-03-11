@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Card from "/public/images/home/card.png"
 import ArrowIcon from "@modules/common/icons/arrow"
-const Slider2 = () => {
+const Slider = () => {
   useEffect(() => {
     const gallery: HTMLElement | null = document.getElementById("slider")
     const left: Element = document.getElementsByClassName("left")[0]
@@ -24,11 +24,6 @@ const Slider2 = () => {
         const image: HTMLImageElement = document.createElement("img")
         image.src = imagesUrl
         imageWrapper.appendChild(image)
-        // const mirrored: HTMLImageElement = image.cloneNode(
-        //   true
-        // ) as HTMLImageElement
-        // mirrored.classList.add("flipped")
-        // imageWrapper.appendChild(mirrored)
         if (gallery) gallery.appendChild(imageWrapper)
       }
     }
@@ -80,7 +75,8 @@ const Slider2 = () => {
   }, [])
 
   return (
-    <div className="gallery container mx-auto">
+    <div className="overflow-hidden content-container md:mx-auto">
+      <div className="gallery mx-auto">
       <div id="slider" className="slider"></div>
       <div className="arrows">
         <div
@@ -95,6 +91,8 @@ const Slider2 = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   )
 }
-export default Slider2
+export default Slider

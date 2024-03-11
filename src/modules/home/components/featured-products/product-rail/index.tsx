@@ -21,7 +21,7 @@ export default function ProductRail({
   return (
     <div className="content-container py-8 small:py-12">
       <div className="flex justify-between mb-8"></div>
-      <ul className="grid md:grid-cols-3 grid-cols-2 gap-x-2 md:gap-x-6 md:gap-y-24 gap-y-4">
+      <ul className="grid md:grid-cols-3 grid-cols-1 gap-x-2 md:gap-x-6 md:gap-y-24 gap-y-4">
         {products &&
           products.map((product) => (
             <li key={product.id}>
