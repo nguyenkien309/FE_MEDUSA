@@ -3,7 +3,7 @@ import AboutDetail from "../components/about-detail"
 
 const AboutTemplate = () => {
   return (
-    <div className="py-12 flex flex-col items-center gap-[4.25rem]">
+    <div className="py-12 flex flex-col items-center gap-[4.25rem] ">
       <AboutSummary />
       <AboutDetail />
     </div>

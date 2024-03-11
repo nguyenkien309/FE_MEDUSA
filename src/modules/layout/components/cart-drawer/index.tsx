@@ -71,7 +71,7 @@ const CartDrawer = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataChange.lineId, dataChange.quantity])
   return (
-    <div className="h-fit max-w-[20px] w-full relative">
+    <div className="max-w-[20px] max-h-[20px] w-full relative">
       {/* btn trigger */}
       <button
         className="hover:text-ui-fg-base text-[1rem] w-full max-w-[20px] relative"

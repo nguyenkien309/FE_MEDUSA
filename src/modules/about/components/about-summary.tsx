@@ -4,13 +4,13 @@ import AboutImage from "@assets/images/about/shirt.png"
 const AboutSummary = () => {
   return (
     <>
-      <div className="flex flex-col gap-[2.5rem] justify-between max-w-[1059px]">
-        <span
-          className="font-semibold leading-77 tracking-tighter text-center hover:text-ui-fg-base px-10 rounded-10 text-[2rem] font-Inter mt-3 md:text-[4rem] lg:text-[4rem]"
-          style={{
-            fontFamily: "Inter",
-          }}
-        >
+      <div
+        className="flex flex-col gap-[2.5rem] justify-between max-w-[1059px]"
+        style={{
+          fontFamily: "Volkhov",
+        }}
+      >
+        <span className="font-semibold leading-77 tracking-tighter text-center hover:text-ui-fg-base px-10 rounded-10 text-[2.5rem] font-Inter mt-3">
           About
         </span>
         <p className="text-[1rem] font-weight-400 text-[#8B8E99] text-base text-center font-medium sm:max-w-full justify-center">

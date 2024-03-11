@@ -1,11 +1,10 @@
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import SearchIcon from "/public/icons/search.svg"
-import AccountIcon from "/public/icons/account.svg"
 
 import { getCustomer } from "@lib/data"
-import { Suspense } from "react"
 import CartButton from "@modules/layout/components/cart-button"
+import AccountDropDown from "./components/account"
 
 export default async function Nav() {
   const customer = await getCustomer()
@@ -106,25 +105,15 @@ export default async function Nav() {
                 Store
               </LocalizedClientLink>
               {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
-                  href="/search"
-                  scroll={false}
-                >
+                <LocalizedClientLink className="" href="/search" scroll={false}>
                   <Image src={SearchIcon} alt="search" width={18} height={18} />
                 </LocalizedClientLink>
               )}
             </div>
 
-            <div className="flex items-center justify-end gap-5 w-full min-w[100px]">
+            <div className="flex items-center justify-end gap-12 w-full min-w[100px]">
               <CartButton />
-              <LocalizedClientLink
-                className="flex w-[6.25rem] h-[3.125rem] hover:text-ui-fg-base items-center text-center justify-center rounded-md bg-center bg-cover"
-                href="/account"
-                scroll={false}
-              >
-                <Image src={AccountIcon} alt="search" width={18} height={18} />
-              </LocalizedClientLink>
+              <AccountDropDown />
             </div>
           </div>
         )}
