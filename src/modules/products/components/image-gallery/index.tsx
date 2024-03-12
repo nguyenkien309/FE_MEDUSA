@@ -22,7 +22,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                   className={clx(
                     "relative aspect-[29/34] w-full overflow-hidden bg-ui-bg-subtle rounded-none",
                     {
-                      "border border-gray-500": currentIndex === index,
+                      "border border-gray-500 rounded-md": currentIndex === index,
                     }
                   )}
                   id={image.id}

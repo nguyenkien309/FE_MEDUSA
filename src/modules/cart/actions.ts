@@ -64,7 +64,6 @@ export async function retrieveCart() {
     const cart = await getCart(cartId).then((cart) => cart)
     return cart
   } catch (e) {
-    console.log(e)
     return null
   }
 }
@@ -91,8 +90,8 @@ export async function addToCart({
   try {
     await addItem({ cartId: cart.id, variantId, quantity })
     revalidateTag("cart")
-  } catch (e) {
-    return "Error adding item to cart"
+  } catch (e: any) {
+      return e.message
   }
 }
 

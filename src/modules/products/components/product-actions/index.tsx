@@ -9,13 +9,11 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { addToCart } from "@modules/cart/actions"
-import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/option-select"
 
 import Minus from "@modules/common/icons/minus"
 import Plus from "@modules/common/icons/plus"
 import ProductInfo from "@modules/products/templates/product-info"
-import MobileActions from "../mobile-actions"
 
 type ProductActionsProps = {
   product: PricedProduct
@@ -36,6 +34,7 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string>>({})
   const [isAdding, setIsAdding] = useState(false)
   const [quantity, setQuantity] = useState(1)
+  const [error, setError] = useState("")
 
   const countryCode = useParams().countryCode as string
 
@@ -117,12 +116,12 @@ export default function ProductActions({
 
     setIsAdding(true)
 
-    await addToCart({
+    const res = await addToCart({
       variantId: variant.id,
       quantity,
       countryCode,
     })
-
+    setError(res || "")
     setIsAdding(false)
   }
 
@@ -140,7 +139,7 @@ export default function ProductActions({
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
         <div>
           {product.variants.length > 1 && (
-            <div className="flex flex-col gap-y-4 max-w-[500px] mx-auto">
+            <div className="flex flex-col gap-y-4 max-w-[500px] md:max-w-2xl md:mx-auto">
               {(product.options || []).map((option) => {
                 return (
                   <div key={option.id}>
@@ -153,12 +152,11 @@ export default function ProductActions({
                   </div>
                 )
               })}
-
             </div>
           )}
         </div>
-        <div className="md:max-w-[500px] md:min-w-[500px] md:mx-auto mt-2">
-          <Text size="base" weight={"plus"} className="mb-3">
+        <div className="max-w-[500px] md:max-w-2xl min-w-0 sm:min-w-[500px] md:min-w-[672px] mx-0 md:mx-auto xl:mx-0 mt-2">
+          <Text size="base" weight={"plus"} className="mb-3"> 
             Quantity
           </Text>
           <div className="flex gap-x-4 items-center">
@@ -192,6 +190,11 @@ export default function ProductActions({
                 : "Add to cart"}
             </Button>
           </div>
+          {error && (
+            <Text size={"small"} className="text-red-500 mt-4">
+              {error}
+            </Text>
+          )}
         </div>
       </div>
     </>

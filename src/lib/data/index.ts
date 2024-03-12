@@ -100,8 +100,7 @@ export async function addItem({
     .create(cartId, { variant_id: variantId, quantity }, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
-      return null
+      throw new Error("The ordered quantity of products is not available!")
     })
 }
 

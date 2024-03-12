@@ -9,6 +9,7 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import FilterProducts from "@modules/store/components/refinement-list/filter-products"
+import { Heading } from "@medusajs/ui"
 
 export default function CategoryTemplate({
   categories,
@@ -30,16 +31,15 @@ export default function CategoryTemplate({
 
   return (
     <>
-      {" "}
-      <div className="mb-8 text-2xl-semi text-center ml-8">
-        <h1>Fashion</h1>
+      <div className="mb-8 text-2xl-semi text-center">
+        <Heading level="h1" className="mb-2 text-3xl font-volkhov">Fashion</Heading>
       </div>
-      <div className="flex flex-col small:flex-row small:items-start py-6 content-container px-20">
+      <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
         <RefinementList sortBy={sortBy || "created_at"}>
           <FilterProducts />
         </RefinementList>
         <div className="w-full">
-          <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+          <div className="flex flex-row text-2xl gap-4">
             {parents &&
               parents.map((parent) => (
                 <span key={parent.id} className="text-ui-fg-subtle">
@@ -69,7 +69,6 @@ export default function CategoryTemplate({
                     </InteractiveLink>
                   </li>
                 ))}
-                
               </ul>
             </div>
           )}

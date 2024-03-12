@@ -35,7 +35,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
             </div>
           </>
         ) : (
-          <div className="flex-1 h-full mx-auto bg-white flex flex-col">
+          <div className="flex-1 h-full bg-white flex flex-col">
             <div className="flex-1">{children}</div>
           </div>
         )}

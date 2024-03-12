@@ -31,16 +31,16 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
   return (
     <>
-      <div className="content-container py-6 relative px-5 md:px-24">
+      <div className="content-container py-6 relative">
         <div className="flex items-center gap-x-2 mb-5">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base text-xl"
+            className="hover:text-ui-fg-base text-xl text-gray-600"
             href="/store"
           >
             Fashion
           </LocalizedClientLink>
           <span>{`>`}</span>
-          <Text size="xlarge" weight={"plus"}>
+          <Text weight={"plus"} className="font-volkhov text-xl">
             Product
           </Text>
         </div>
@@ -53,7 +53,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
               <ProductActionsWrapper id={product.id} region={region} />
             </Suspense>
             <ProductOnboardingCta />
-            <div className="p-3 bg-[#F8F8F8] flex justify-center max-w-[500px] mx-auto">
+            <div className="p-3 bg-[#F8F8F8] flex justify-center max-w-[500px] md:max-w-2xl md:mx-auto">
               <div className="space-y-3 ">
                 <Image
                   src={TrustBag}

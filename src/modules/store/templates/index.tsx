@@ -4,8 +4,9 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
-import PaginatedProducts from "./paginated-products"
 import FilterProducts from "../components/refinement-list/filter-products"
+import PaginatedProducts from "./paginated-products"
+import { Heading } from "@medusajs/ui"
 
 const StoreTemplate = ({
   sortBy,
@@ -20,12 +21,15 @@ const StoreTemplate = ({
 
   return (
     <div>
-      <div className="mb-8 text-2xl-semi text-center">
-        <h1>Fashion</h1>
+      <div className="mb-8 text-3xl text-center">
+        <Heading level="h1" className="mb-2 text-3xl font-volkhov">
+          Fashion
+        </Heading>
       </div>
-      <div className="flex flex-col small:flex-row small:items-start py-6 content-container px-20">
+
+      <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
         <RefinementList sortBy={sortBy || "created_at"}>
-          <FilterProducts/>
+          <FilterProducts />
         </RefinementList>
         <div className="w-full">
           <Suspense fallback={<SkeletonProductGrid />}>

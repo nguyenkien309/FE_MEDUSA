@@ -7,16 +7,24 @@ import Image from "next/image"
 import FormAuth from "../form-auth"
 import GoogleIcon from "/public/google-icon.png"
 import SignUpImage from "/public/signup.jpg"
+import { signUp } from "@modules/account/actions"
+import { useFormState } from "react-dom"
+import ErrorMessage from "@modules/checkout/components/error-message"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
 }
 
 const Register = ({ setCurrentView }: Props) => {
+  const [message, formAction] = useFormState(signUp, null)
   return (
-    <div className="p-5">
-      <FormAuth title="Create Account" imageUrl={SignUpImage.src}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div>
+      <FormAuth
+        title="Create Account"
+        imageUrl={SignUpImage.src}
+        formAction={formAction}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <AuthFormInput
             label="First name"
             name="first_name"
@@ -58,9 +66,10 @@ const Register = ({ setCurrentView }: Props) => {
             required
           />
         </div>
+        <ErrorMessage error={message} />
         <div className="md:px-5 pt-6">
           <SubmitButton className="w-full mb-4">Create Account</SubmitButton>
-          <a
+          {/* <a
             type="button"
             href="#"
             className="border border-[#5B86E5] rounded-lg text-xs w-full flex justify-center gap-x-2 py-2.5 font-medium"
@@ -72,12 +81,13 @@ const Register = ({ setCurrentView }: Props) => {
               alt={`Google icon`}
             />
             Sign up with Google
-          </a>
+          </a> */}
         </div>
 
         <span className="text-center text-ui-fg-base text-small-regular mt-2 flex justify-center">
           Already have an account?
           <button
+            type="button"
             onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
             className="text-[#5B86E5] ml-1"
           >

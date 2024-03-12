@@ -52,7 +52,7 @@ const FilterRadioGroup = ({
                 placeholder={i.label}
                 htmlFor={i.value}
                 className={clx(
-                  "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer flex gap-x-2 items-center",
+                  "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer hover:text-ui-fg-base flex gap-x-2 items-center",
                   {
                     "text-ui-fg-base": i.value === value,
                     "ml-3": +index !== 0,
@@ -64,7 +64,6 @@ const FilterRadioGroup = ({
                 {index === 0 && (
                 <Image
                   width={30}
-                  layout="static"
                   src={NewIcon}
                   alt={`New icon`}
                 />
