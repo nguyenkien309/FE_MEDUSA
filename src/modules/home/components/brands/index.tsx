@@ -9,7 +9,7 @@ import Denim from "/public/images/home/demin.png"
 
 const Brands = () => {
   return (
-    <div className="container items-center space-y-8 md:space-y-0 mx-auto flex-col md:flex-row flex md:justify-between md:py-12 py-10">
+    <div className="content-container items-center space-y-8 :space-y-0 mx-auto flex-col lg:flex-row flex md:justify-between md:py-12 py-10">
       <Image
         quality={100}
         width={200}

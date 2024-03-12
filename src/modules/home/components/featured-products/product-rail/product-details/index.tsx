@@ -50,8 +50,8 @@ export default function ProductPreview({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div className="px-4 py-3 border rounded-lg bg-white ">
-        <div className="md:w-[336px] h-[244px] relative rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border rounded-lg bg-white overflow-hidden">
+        <div className="lg:w-[336px] h-[244px] relative rounded-lg overflow-hidden">
           <Image
             src={pricedProduct.thumbnail || ""}
             alt="Thumbnail"
