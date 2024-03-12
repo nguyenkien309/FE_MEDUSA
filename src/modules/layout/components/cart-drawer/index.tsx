@@ -99,11 +99,14 @@ const CartDrawer = ({
           >
             {/* header */}
             <div>
-              <div className="small:pl-[47px] small:pr-[39px] small:py-[63px] p-6 flex justify-between items-center">
+              <div className="small:pl-[47px] small:pr-[39px] small:py-[63px] p-6 flex justify-between items-center relative">
                 <h1 className="font-normal small:text-[46px] text-[20px] small:leading-[32px] leading-[26px] text-black">
                   Shopping Cart
                 </h1>
-                <button onClick={handleToggleCart}>
+                <button
+                  onClick={handleToggleCart}
+                  className="fixed top-[35px] right-10"
+                >
                   <Image src={CancelIcon} alt="cart" width={24} height={24} />
                 </button>
               </div>
@@ -129,52 +132,62 @@ const CartDrawer = ({
                                 />
                               </LocalizedClientLink>
                               <div className="flex flex-col overflow-ellipsis whitespace-nowrap mr-4 w-full">
-                                <h3 className="text-base-regular overflow-hidden text-ellipsis small:text-[22px] text-[16px]">
+                                <h3 className="text-base-regular overflow-hidden text-ellipsis small:text-[22px] text-[16px] leading-[42px]">
                                   <LocalizedClientLink
                                     href={`/products/${item.variant.product.handle}`}
                                   >
                                     {item.title}
                                   </LocalizedClientLink>
                                 </h3>
-                                <div className="flex justify-start my-2">
+                                <div className="flex justify-start mt-2 mb-[17px]">
                                   <LineItemPrice
                                     region={cartState.region}
                                     item={item}
                                     style="tight"
-                                    className="small:text-[22px] text-[16px] text-black"
+                                    className="small:text-[22px] small:leading-[42px] leading-[20px] text-[16px] text-black"
                                   />
                                 </div>
-                                <div className="flex gap-2 items-center w-full 2xsmall:justify-start xsmall:justify-normal">
-                                  <div className="small:max-w-[170px] max-w-[100px] w-full small:h-[59px] h-auto flex items-center justify-between border bg-[#F1F1F1] border-[#8A8A8A] rounded-[3.5px]">
-                                    <button
-                                      disabled={updating}
-                                      onClick={() =>
-                                        setDataChange({
-                                          quantity: item.quantity - 1,
-                                          lineId: item.id,
-                                        })
-                                      }
-                                      className="cursor-pointer small:py-4 p-2 small:px-[13px] disabled:pointer-events-none"
-                                    >
-                                      <DecreaseIcon />
-                                    </button>
-                                    <p className="small:text-[30px] text-[18px] font-normal leading-[38.7px] text-[#8A8A8A]">
-                                      {item.quantity}
-                                    </p>
-                                    <button
-                                      disabled={updating}
-                                      onClick={() =>
+                                <div className="small:max-w-[119px] max-w-[80px] w-full small:h-[41.3px] h-auto flex items-center justify-between border bg-[#F1F1F1] border-[#8A8A8A] rounded-[3.5px]">
+                                  <button
+                                    disabled={updating}
+                                    onClick={() =>
+                                      setDataChange({
+                                        quantity: item.quantity - 1,
+                                        lineId: item.id,
+                                      })
+                                    }
+                                    className="cursor-pointer small:py-4 p-1 small:px-[13px] disabled:pointer-events-none"
+                                  >
+                                    <DecreaseIcon />
+                                  </button>
+                                  <p className="small:text-[25.02px] text-[18px] font-normal small:leading-[32.28px] leading-[20px] text-[#8A8A8A]">
+                                    {item.quantity < 10
+                                      ? `0${item.quantity}`
+                                      : item.quantity}
+                                  </p>
+                                  <button
+                                    disabled={
+                                      updating ||
+                                      item.quantity ===
+                                        item.variant.inventory_quantity
+                                    }
+                                    onClick={() => {
+                                      if (
+                                        +item.quantity ===
+                                        +item.variant.inventory_quantity
+                                      ) {
+                                        return
+                                      } else {
                                         setDataChange({
                                           quantity: item.quantity + 1,
                                           lineId: item.id,
                                         })
                                       }
-                                      className="cursor-pointer small:py-3 p-2 small:px-[13px] disabled:pointer-events-none"
-                                    >
-                                      <IncreaseIcon />
-                                    </button>
-                                  </div>
-                                  <DeleteButton id={item.id} />
+                                    }}
+                                    className="cursor-pointer small:py-3 p-1 small:px-[13px] disabled:pointer-events-none"
+                                  >
+                                    <IncreaseIcon />
+                                  </button>
                                 </div>
                                 <ErrorMessage error={error} />
                               </div>
@@ -211,8 +224,8 @@ const CartDrawer = ({
             {/* footer */}
             <div className="flex flex-col items-start small:pt-[45px] small:px-[45px] small:pb-[30px] px-4 py-4">
               {cartState && cartState.items?.length > 0 && (
-                <div className="flex flex-col text-small-regular max-w-[610px] w-full mb-[29px]">
-                  <div className="flex items-center justify-between small:text-[22px] text-[16px] font-normal small:leading-[32px] leading-[22px]">
+                <div className="flex flex-col text-small-regular small:pr-[41px] pr-0 w-full small:mb-[29px] mb-4">
+                  <div className="flex items-center justify-between small:text-[22px] text-[16px] font-normal small:leading-[32px] leading-[22px] font-volkhov">
                     <span className="text-ui-fg-base font-semibold">
                       Subtotal
                     </span>
@@ -230,11 +243,11 @@ const CartDrawer = ({
                 <LocalizedClientLink
                   href="/checkout?step=delivery"
                   passHref
-                  className="w-full max-w-[610px] mb-[14px] !ml-0"
+                  className="w-full mb-[14px] small:pr-[41px] pr-0 !ml-0 font-volkhov"
                 >
                   <Button
                     onClick={handleToggleCart}
-                    className="w-full text-[16px] leading-4 small:h-[66px] h-[50px] font-normal"
+                    className="w-full text-[16px] leading-4 small:h-[66px] h-[50px] font-normal text-white font-volkhov"
                     size="xlarge"
                   >
                     Checkout
@@ -244,11 +257,11 @@ const CartDrawer = ({
               <LocalizedClientLink
                 href="/cart"
                 passHref
-                className="w-full max-w-[610px] !ml-0"
+                className="w-full small:pr-[41px] pr-0 !ml-0 font-volkhov"
               >
                 <button
                   onClick={handleToggleCart}
-                  className="w-full bg-transparent underline text-black small:text-[22px] text-[16px]"
+                  className="w-full bg-transparent underline text-black small:text-[22px] text-[16px] font-volkhov small:leading-[32px] leading-[22px]"
                 >
                   View cart
                 </button>

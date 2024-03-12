@@ -32,7 +32,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></Script>
       <body className={`${poppins.className} ${volkhov.className}`}>
-        <main className="relative">{props.children}</main>
+        <main className="relative w-full">{props.children}</main>
       </body>
     </html>
   )

@@ -7,10 +7,10 @@ interface Props {
 }
 const Input: React.FC<Props> = ({ label, name, placeholder }) => {
   return (
-    <div className="h-[55.66px] min-w-[130px] w-full flex flex-col">
+    <div className="h-[55.34px] min-w-[120px] w-full flex flex-col font-volkhov">
       <label
         htmlFor={name}
-        className="text-[12px] font-medium leading-5 text-[#8D8D8D]"
+        className="text-[16px] font-medium leading-5 text-[#8D8D8D]"
       >
         {label}
       </label>

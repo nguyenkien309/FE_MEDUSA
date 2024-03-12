@@ -22,7 +22,7 @@ const ContactForm = () => {
         name="message"
         placeholder="Write your message.."
       />
-      <Button className=" z-10 h-[45.54px] max-w-[277.19px] w-full bg-black rounded-[5px] text-[16px] font-medium leading-[24px] text-[#ffffff]">
+      <Button className=" z-10 h-[45.54px] max-w-[277.19px] w-full bg-black rounded-[5px] text-[16px] font-medium leading-[24px] text-[#ffffff] font-poppins">
         Send Message
       </Button>
     </div>
