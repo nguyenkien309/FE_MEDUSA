@@ -34,7 +34,16 @@ const DeleteButton = ({
         className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
         onClick={() => handleDelete(id)}
       >
-        {isDeleting ? <Spinner className="animate-spin" /> : <TrashIcon />}
+        {isDeleting ? (
+          <Spinner className="animate-spin" />
+        ) : (
+          <>
+            <TrashIcon className="hidden sc600:block" />
+            <p className="sc600:hidden text-[14px] font-normal leading-6 text-red-500 underline decoration-solid">
+              Delete
+            </p>
+          </>
+        )}
         <span>{children}</span>
       </button>
     </div>

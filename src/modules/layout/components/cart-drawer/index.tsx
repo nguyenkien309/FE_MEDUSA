@@ -111,7 +111,7 @@ const CartDrawer = ({
                 </button>
               </div>
               {/* body */}
-              <div className="small:pt-[45px] pt-4 sm:px-[45px] px-4 pb-0">
+              <div className="small:pt-[45px] pt-4 small:pl-[45px] small:pr-[86px] px-4 pb-0">
                 {cartState && cartState.items?.length ? (
                   <>
                     <div className="overflow-y-scroll max-h-[680px] h-full flex flex-col no-scrollbar p-px w-full">
@@ -222,9 +222,9 @@ const CartDrawer = ({
               </div>
             </div>
             {/* footer */}
-            <div className="flex flex-col items-start small:pt-[45px] small:px-[45px] small:pb-[30px] px-4 py-4">
+            <div className="flex flex-col items-start small:pt-[45px] small:pl-[45px] small:pr-[86px] small:pb-[30px] px-4 py-4">
               {cartState && cartState.items?.length > 0 && (
-                <div className="flex flex-col text-small-regular small:pr-[41px] pr-0 w-full small:mb-[29px] mb-4">
+                <div className="flex flex-col text-small-regular pr-0 w-full small:mb-[29px] mb-4">
                   <div className="flex items-center justify-between small:text-[22px] text-[16px] font-normal small:leading-[32px] leading-[22px] font-volkhov">
                     <span className="text-ui-fg-base font-semibold">
                       Subtotal
@@ -243,7 +243,7 @@ const CartDrawer = ({
                 <LocalizedClientLink
                   href="/checkout?step=delivery"
                   passHref
-                  className="w-full mb-[14px] small:pr-[41px] pr-0 !ml-0 font-volkhov"
+                  className="w-full mb-[14px] pr-0 !ml-0 font-volkhov"
                 >
                   <Button
                     onClick={handleToggleCart}
