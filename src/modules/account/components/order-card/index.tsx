@@ -17,7 +17,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       {order.items.map((i) => {
         return (
           <Table.Row key={i.id} className="bg-[#F5F5F5] ">
-            <Table.Cell className="max-w-[60px]" style={{ padding: 0 }}>
+            <Table.Cell className="max-w-[40px]" style={{ padding: 0 }}>
               <Thumbnail
                 thumbnail={i.thumbnail}
                 size="square"
@@ -25,9 +25,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
               />
             </Table.Cell>
 
-            <Table.Cell className="max-w-[50px]">
+            <Table.Cell className="max-w-[50px] overflow-scroll">
               <span className="text-center text-ui-fg-base font-semibold">
                 {i.title}
+                11111111111111111111111111111111111111111111111111111111111111111
               </span>
             </Table.Cell>
             <Table.Cell className="text-center">{i.quantity}</Table.Cell>

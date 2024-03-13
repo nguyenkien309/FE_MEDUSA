@@ -16,7 +16,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
 }) => {
   return (
     <div className="flex-1 small:py-12">
-      <div className="flex-1 content-container h-full min-w-[32.5rem] w-full bg-white flex flex-col">
+      <div className="flex-1 content-container h-full min-w-[25rem] w-full bg-white flex flex-col">
         {customer ? (
           <>
             <div className="grid grid-cols-1 small:grid-cols-[240px_1fr] py-12 max-w-[81.25rem]">
