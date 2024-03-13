@@ -5,7 +5,7 @@ import Item from "./item"
 
 const FutureV = () => {
   return (
-    <div className="flex flex-col md:flex-row container mx-auto justify-between md:space-y-0 space-y-4 bg-white py-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container mx-auto justify-between md:space-y-0 space-y-4 bg-white py-10 gap-3">
       {FUTURE.map((item) => {
         return (
           <Item
