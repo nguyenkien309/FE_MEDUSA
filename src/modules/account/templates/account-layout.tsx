@@ -4,6 +4,7 @@ import UnderlineLink from "@modules/common/components/interactive-link"
 
 import AccountNav from "../components/account-nav"
 import { Customer } from "@medusajs/medusa"
+import { clx } from "@medusajs/ui"
 
 interface AccountLayoutProps {
   customer: Omit<Customer, "password_hash"> | null
@@ -16,7 +17,14 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
 }) => {
   return (
     <div className="flex-1 small:py-12">
-      <div className="flex-1 content-container h-full min-w-[32.5rem] w-full bg-white flex flex-col">
+      <div
+        className={clx(
+          "flex-1 content-container h-full w-full bg-white flex flex-col",
+          {
+            "min-w-[32.5rem]": customer,
+          }
+        )}
+      >
         {customer ? (
           <>
             <div className="grid grid-cols-1 small:grid-cols-[240px_1fr] py-12 max-w-[81.25rem]">
