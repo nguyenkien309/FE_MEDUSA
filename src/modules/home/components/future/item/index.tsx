@@ -7,8 +7,8 @@ interface Props {
 }
 const Item: React.FC<Props> = ({ content, image, title }) => {
   return (
-    <div className="flex space-x-2 ml-5 md:ml-0">
-      <div className="relative h-[50px] w-[50px]">
+    <div className="flex space-x-2 ml-5 md:ml-0 lg:items-center lg:justify-center">
+      <div className="relative h-[50px] w-[50px] ">
         <Image src={image} alt="" fill />
       </div>
       <div className="text-[#484848]">

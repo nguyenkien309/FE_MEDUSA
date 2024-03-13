@@ -22,7 +22,7 @@ const ScrollToTop = () => {
   const scrollToTop = useScrollToTop()
   return (
     <div
-      className={`fixed bottom-5 right-5 rounded-full md:w-14 w-8 h-8 md:h-14 bg-white hover:bg-gray-300 cursor-pointer ${
+      className={`fixed bottom-5 right-5 rounded-full md:w-14 w-8 h-8 md:h-14 bg-white hover:bg-gray-300 cursor-pointer z-50 ${
         visiable ? "" : "hidden"
       }`}
       onClick={scrollToTop}
