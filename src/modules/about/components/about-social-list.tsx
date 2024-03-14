@@ -6,10 +6,7 @@ import YoutubeIcon from "/public/icons/yt.svg"
 
 const AboutSocialList = () => {
   return (
-    <div
-      className="hidden md:flex flex-col max-w-[3.3rem] justify-between max-h-[17.688rem] items-center text-center pr-10"
-      style={{ fontSize: "Inter" }}
-    >
+    <div className="hidden md:flex flex-col max-w-[3.3rem] justify-between max-h-[17.688rem] items-center text-center pr-10">
       <span className="text-inter justify-center items-center text-sm font-bold leading-5 tracking-tight text-center text-gray-400">
         SHARE
       </span>

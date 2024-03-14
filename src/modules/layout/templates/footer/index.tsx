@@ -11,21 +11,13 @@ export default async function Footer() {
             <LocalizedClientLink
               href="/"
               className="w-auto text-2xl md:text-4xl lg:text-[3.25rem] leading-32 sm:leading-none font-normal text-center sm:text-left text-[#484848]"
-              style={{
-                fontFamily: "volkhov",
-              }}
             >
               BHShop
             </LocalizedClientLink>
           </div>
 
           <div className="w-full text-lg">
-            <div
-              className="flex w-full gap-5 sm:gap-10 md:gap-16 lg:gap-20 md:justify-end items-center justify-center text-xs md:text-sm lg:text-base"
-              style={{
-                fontFamily: "Poppins",
-              }}
-            >
+            <div className="flex w-full gap-5 sm:gap-10 md:gap-16 lg:gap-20 md:justify-end items-center justify-center text-xs md:text-sm lg:text-base">
               <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
                 Home
               </LocalizedClientLink>

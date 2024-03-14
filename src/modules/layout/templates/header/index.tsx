@@ -10,7 +10,7 @@ export default async function Nav() {
   const customer = await getCustomer()
 
   return (
-    <nav className="border-t border-ui-border-base w-full max-w-[80rem] content-container">
+    <nav className="border-t border-ui-border-base w-full max-w-[80rem] content-container py-6">
       <div className="flex flex-col justify-center items-center w-full">
         {!customer ? (
           <div className="flex flex-row w-full items-center py-5 ">
@@ -18,7 +18,6 @@ export default async function Nav() {
               <LocalizedClientLink
                 href="/"
                 className="font-volkhov text-2xl md:text-4xl lg:text-[3.25rem] leading-32 text-center"
-                style={{ fontFamily: "volkhov" }}
               >
                 BHShop
               </LocalizedClientLink>

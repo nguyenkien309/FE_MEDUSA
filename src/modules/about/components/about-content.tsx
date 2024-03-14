@@ -1,11 +1,6 @@
 const AboutContent = () => {
   return (
-    <div
-      className="flex flex-col w-full max-w-[57.5rem] gap-20 px-10 pb-10"
-      style={{
-        fontFamily: "Volkhov",
-      }}
-    >
+    <div className="flex flex-col w-full max-w-[57.5rem] gap-20 px-10 pb-10">
       <div className="flex flex-col gap-6">
         <p className=" text-2xl font-bold leading-9 tracking-tight text-left text-gray-500">
           How did BHShop come into existence?

@@ -45,10 +45,7 @@ const AccountInfo = ({
     <div className="text-small-regular">
       <div className="flex items-end justify-between">
         <div className="flex flex-col">
-          <span
-            className="uppercase text-ui-fg-base font-bold text-base"
-            style={{ fontFamily: "Volkhov" }}
-          >
+          <span className="uppercase text-ui-fg-base font-bold text-base">
             {label}
           </span>
           <div className="flex items-center flex-1 basis-0 justify-start gap-x-4">

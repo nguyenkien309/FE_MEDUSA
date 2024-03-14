@@ -58,8 +58,7 @@ const ContactCard = () => {
         </a>
       </div>
       <div
-        className="w-[138px] h-[138px] shrink-0 absolute right-[70px]
-       bottom-[71px] bg-no-repeat bg-contain "
+        className="w-[138px] h-[138px] shrink-0 absolute right-[70px] bottom-[71px] bg-no-repeat bg-contain"
         style={{
           backgroundImage: `url(${BgCircle1.src})`,
         }}

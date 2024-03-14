@@ -16,7 +16,7 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
   }
 
   return (
-    <div className="w-full" style={{ fontFamily: "Inter" }}>
+    <div className="w-full">
       <Text className="text-xl mb-4">Order Information</Text>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
