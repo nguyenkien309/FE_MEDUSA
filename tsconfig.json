@@ -20,7 +20,6 @@
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"],
-      "@assets/*": ["app/assets/*"]
     },
     "plugins": [
       {
