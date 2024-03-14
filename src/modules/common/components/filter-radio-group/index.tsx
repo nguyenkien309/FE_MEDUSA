@@ -1,7 +1,7 @@
 import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
 import Image from "next/image"
 import { ChangeEvent } from "react"
-import NewIcon from "/public/new.png"
+import NewIcon from "/public/images/store/new.png"
 
 type FilterRadioGroupProps = {
   title: string

@@ -1,15 +1,13 @@
 "use client"
 
+import { signUp } from "@modules/account/actions"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
+import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import AuthFormInput from "@modules/common/components/input/AuthFormInput"
-import Image from "next/image"
-import FormAuth from "../form-auth"
-import GoogleIcon from "/public/google-icon.png"
-import SignUpImage from "/public/signup.jpg"
-import { signUp } from "@modules/account/actions"
 import { useFormState } from "react-dom"
-import ErrorMessage from "@modules/checkout/components/error-message"
+import FormAuth from "../form-auth"
+import SignUpImage from "/public/images/account/signup.jpg"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void

@@ -10,7 +10,7 @@ import RelatedProducts from "@modules/products/components/related-products"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
-import TrustBag from "/public/trustbag.png"
+import TrustBag from "/public/images/store/trustbag.png"
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 

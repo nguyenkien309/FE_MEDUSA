@@ -3,11 +3,11 @@ import Location from "@modules/common/icons/location"
 import Phone from "@modules/common/icons/phone"
 import Image from "next/image"
 import React from "react"
-import Twitter from "@assets/images/contact/twitter.png"
-import Instagram from "@assets/images/contact/instagram.png"
-import Discord from "@assets/images/contact/discord.png"
-import BgCircle1 from "@assets/images/contact/bg-circle-1.png"
-import BgCircle2 from "@assets/images/contact/bg-circle-2.png"
+import Twitter from "/public/images/contact/twitter.png"
+import Instagram from "/public/images/contact/instagram.png"
+import Discord from "/public/images/contact/discord.png"
+import BgCircle1 from "/public/images/contact/bg-circle-1.png"
+import BgCircle2 from "/public/images/contact/bg-circle-2.png"
 
 const ContactCard = () => {
   return (
