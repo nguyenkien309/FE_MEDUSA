@@ -15,7 +15,7 @@ export default async function Nav() {
       <div className="flex flex-col justify-center items-center w-full">
         <div className="flex flex-row w-full items-center py-5 ">
           <div className="flex-grow sm:flex-grow-0 flex-row flex">
-            <NavMobile  />
+            <NavMobile />
             <LocalizedClientLink
               href="/"
               className="font-volkhov text-2xl md:text-4xl leading-32 text-center"
@@ -56,6 +56,7 @@ export default async function Nav() {
                   </button>
                 </LocalizedClientLink>
               )}
+              {customer && <AccountDropDown />}
             </div>
           </div>
         </div>
