@@ -10,14 +10,14 @@ export default async function Nav() {
   const customer = await getCustomer()
 
   return (
-    <nav className="border-t border-ui-border-base w-full min-w-[400px] content-container">
+    <nav className="border-t border-ui-border-base w-full max-w-[80rem] content-container">
       <div className="flex flex-col justify-center items-center w-full">
         {!customer ? (
           <div className="flex flex-row w-full items-center py-5 ">
             <div className="flex-grow sm:flex-grow-0">
               <LocalizedClientLink
                 href="/"
-                className="font-volkhov text-[3.25rem] leading-32 text-center"
+                className="font-volkhov text-2xl md:text-4xl lg:text-[3.25rem] leading-32 text-center"
                 style={{ fontFamily: "volkhov" }}
               >
                 BHShop
@@ -79,13 +79,13 @@ export default async function Nav() {
             <div className="flex justify-start w-full text-center">
               <LocalizedClientLink
                 href="/"
-                className="font-volkhov font-normal text-4xl lg:text-[3.25rem] leading-32 text-center text-[#484848]"
+                className="font-volkhov font-normal text-2xl md:text-4xl lg:text-[3.25rem] leading-32 text-center text-[#484848]"
               >
                 BHShop
               </LocalizedClientLink>
             </div>
 
-            <div className="hidden md:flex flex-row text-center align-middle items-center justify-center gap-20 shrink-0">
+            <div className="hidden md:flex flex-row sm:flex-wrap text-center align-middle items-center justify-center gap-20 shrink-0">
               <LocalizedClientLink
                 className="flex hover:text-ui-fg-base text-[1rem]"
                 href="/"

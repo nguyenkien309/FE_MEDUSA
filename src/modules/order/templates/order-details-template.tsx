@@ -24,18 +24,20 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
         <h1 className=" text-lg md:text-2xl-semi">Order details</h1>
         <LocalizedClientLink
           href="/account/orders"
-          className="flex gap-2 items-center text-ui-fg-subtle hover:text-ui-fg-base"
+          className="hidden sm:flex gap-2 items-center text-ui-fg-subtle hover:text-ui-fg-base"
         >
           <XMark />
-          <span className=" text-xs md:text-base">Back to overview</span>
+          <span className="text-xs md:text-base">Back to overview</span>
         </LocalizedClientLink>
       </div>
-      <div className="flex flex-col gap-4 h-full bg-[#F5F5F5] w-full">
+      <div className="flex flex-col gap-4 h-full bg-[#F5F5F5] w-full overflow-y-auto max-w-[80rem]">
         <span className="hidden md:flex text-base">
           View your previous orders and their status. You can also create
           returns or exchanges for your orders if needed.
         </span>
+
         <Items items={order.items} region={order.region} />
+
         <OrderSummary order={order} />
       </div>
     </div>

@@ -9,7 +9,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const OrderOverview = ({ orders }: { orders: Order[] }) => {
   if (orders?.length) {
     return (
-      <div className="flex flex-col ">
+      <div className="flex flex-col overflow-y-auto min-w-full">
         <Table>
           <Table.Header>
             <Table.Row className="bg-[#F5F5F5]">

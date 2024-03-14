@@ -4,13 +4,13 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 export default async function Footer() {
   return (
-    <footer className="w-full border-t border-ui-border-base min-w-[400px]">
+    <footer className="w-full border-t border-ui-border-base">
       <div className="flex flex-col justify-center items-center w-full">
         <div className="flex flex-col md:flex-row w-full items-center max-w-[80rem] p-6">
           <div className="flex-grow sm:flex-grow-0">
             <LocalizedClientLink
               href="/"
-              className="w-auto text-3xl leading-32 sm:leading-none font-normal text-center sm:text-left text-[#484848]"
+              className="w-auto text-2xl md:text-4xl lg:text-[3.25rem] leading-32 sm:leading-none font-normal text-center sm:text-left text-[#484848]"
               style={{
                 fontFamily: "volkhov",
               }}
@@ -21,27 +21,24 @@ export default async function Footer() {
 
           <div className="w-full text-lg">
             <div
-              className="flex w-full gap-20 items-center justify-center md:justify-end"
+              className="flex w-full gap-5 sm:gap-10 md:gap-16 lg:gap-20 md:justify-end items-center justify-center text-xs md:text-sm lg:text-base"
               style={{
                 fontFamily: "Poppins",
               }}
             >
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base text-[1rem]"
-                href="/"
-              >
+              <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
                 Home
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                className="hover:text-ui-fg-base text-[1rem]"
+                className="hover:text-ui-fg-base shrink-0"
                 href="/contact"
               >
                 Contact us
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                className="hover:text-ui-fg-base text-[1rem]"
+                className="hover:text-ui-fg-base shrink-0"
                 href="/about"
               >
                 About us
