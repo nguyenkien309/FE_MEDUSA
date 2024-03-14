@@ -84,7 +84,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} BHSOFT. All rights
+                        © {new Date().getFullYear()} BHShop. All rights
                         reserved.
                       </Text>
                     </div>

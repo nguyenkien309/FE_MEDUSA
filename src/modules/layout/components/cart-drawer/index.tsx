@@ -57,6 +57,11 @@ const CartDrawer = ({
     document.documentElement.style.overflow = ""
   }
 
+  const totalItems =
+    cartState?.items?.reduce((acc, item) => {
+      return acc + item.quantity
+    }, 0) || 0
+
   useEffect(() => {
     if (openCart) {
       disableScroll()
@@ -80,7 +85,7 @@ const CartDrawer = ({
         <Image src={CartIcon} alt="cart" width={18} height={20} />
         {cartState && cartState?.items?.length > 0 && (
           <span className="absolute text-center text-[16px] w-6 h-6 left-[17px] bottom-[8px] bg-[#FF0606] text-white rounded-full">
-            {cartState?.items?.length}
+            {totalItems}
           </span>
         )}
       </button>

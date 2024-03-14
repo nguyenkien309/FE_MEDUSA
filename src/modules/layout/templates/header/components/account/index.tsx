@@ -20,13 +20,15 @@ const AccountDropDown = () => {
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Image
-          src={AccountIcon}
-          alt="Account"
-          width={18}
-          height={20}
-          className="relative"
-        />
+        <span className="hover:cursor-pointer">
+          <Image
+            src={AccountIcon}
+            alt="Account"
+            width={18}
+            height={20}
+            className="relative"
+          />
+        </span>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className="absolute max-w-[100px] left-[-12.5rem]">
         <LocalizedClientLink

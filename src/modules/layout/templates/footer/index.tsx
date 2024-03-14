@@ -10,7 +10,7 @@ export default async function Footer() {
           <div className="flex-grow sm:flex-grow-0">
             <LocalizedClientLink
               href="/"
-              className="w-auto text-2xl md:text-4xl lg:text-[3.25rem] leading-32 sm:leading-none font-normal text-center sm:text-left text-[#484848]"
+              className="w-auto text-2xl md:text-4xl leading-32 sm:leading-none font-normal text-center sm:text-left text-[#484848]"
             >
               BHShop
             </LocalizedClientLink>

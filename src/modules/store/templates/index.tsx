@@ -21,7 +21,7 @@ const StoreTemplate = ({
 
   return (
     <div>
-      <div className="mb-8 text-3xl text-center">
+      <div className="my-8 text-3xl text-center">
         <Heading level="h1" className="mb-2 text-3xl font-volkhov">
           Fashion
         </Heading>

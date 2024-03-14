@@ -4,9 +4,9 @@ import React from "react"
 
 import { IconProps } from "types/icon"
 
-const Close: React.FC<IconProps> = ({
-  size = "16",
-  color = "currentColor",
+const Search: React.FC<IconProps> = ({
+  size = "20",
+  color = "#9CA3AF",
   ...attributes
 }) => {
   return (
@@ -21,11 +21,11 @@ const Close: React.FC<IconProps> = ({
     >
       <path
         stroke-linecap="round"
-        strokeLinejoin="round"
-        d="M6 18 18 6M6 6l12 12"
+        stroke-linejoin="round"
+        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
       />
     </svg>
   )
 }
 
-export default Close
+export default Search

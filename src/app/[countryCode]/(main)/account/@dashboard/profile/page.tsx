@@ -11,7 +11,7 @@ import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your BHSOFT Store profile.",
+  description: "View and edit your BHShop Store profile.",
 }
 
 export default async function Profile() {

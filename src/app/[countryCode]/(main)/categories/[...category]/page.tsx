@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${title} category.`
 
     return {
-      title: `${title} | BHSOFT`,
+      title: `${title} | BHShop`,
       description,
       alternates: {
         canonical: `${params.category.join("/")}`,
