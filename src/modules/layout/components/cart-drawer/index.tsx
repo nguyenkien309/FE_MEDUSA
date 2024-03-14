@@ -262,7 +262,7 @@ const CartDrawer = ({
               <LocalizedClientLink
                 href="/cart"
                 passHref
-                className="w-full small:pr-[41px] pr-0 !ml-0 font-volkhov"
+                className="w-full pr-0 !ml-0 font-volkhov"
               >
                 <button
                   onClick={handleToggleCart}

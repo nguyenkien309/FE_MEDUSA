@@ -25,7 +25,7 @@ export default function Drawer({
     >
       <div
         className={clx(
-          "p-8 w-screen max-w-sm md:max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform",
+          "p-8 w-screen max-w-sm !md:max-w-md right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform",
           { "translate-x-0": isOpen, "translate-x-full": !isOpen }
         )}
       >

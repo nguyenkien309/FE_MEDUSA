@@ -44,7 +44,7 @@ export default async function Checkout() {
         BHShop Demo Checkout
       </h1>
       <Divider/>
-      <div className="grid grid-cols-1 md:grid-cols-2 content-container gap-x-40 py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 content-container gap-x-20 py-12">
         <Wrapper cart={cart}>
           <CheckoutForm />
         </Wrapper>

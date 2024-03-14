@@ -20,13 +20,13 @@ export default function OrderCompletedTemplate({
   const isOnboarding = cookies().get("_medusa_onboarding")?.value === "true"
 
   return (
-    <div className="!font-volkhov py-6 min-h-[calc(100vh-64px)]">
-      <div className="content-container flex flex-col justify-center items-center gap-y-10 px-4 max-w-[80rem] h-full w-full">
+    <div className="content-container !font-volkhov py-6 min-h-[calc(100vh-64px)]">
+      <div className="flex flex-col justify-center items-center gap-y-10 max-w-[80rem] h-full w-full">
         {isOnboarding && <OnboardingCta orderId={order.id} />}
-        <div className="flex flex-col gap-4 max-w-full h-full bg-white w-full py-10">
+        <div className="flex flex-col gap-4 max-w-full h-full bg-white w-full py-10 ">
           <Heading
             level="h1"
-            className="font-volkhov flex flex-col gap-y-3 text-black text-3xl mb-4 md:text-[46px]"
+            className="font-volkhov flex flex-col gap-y-3 text-black text-2xl"
           >
             <span>Thank you!</span>
             <span>Your order was placed successfully.</span>
