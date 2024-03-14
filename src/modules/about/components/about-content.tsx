@@ -1,7 +1,7 @@
 const AboutContent = () => {
   return (
     <div
-      className="flex flex-col w-full max-w-[920px] gap-20 px-10"
+      className="flex flex-col w-full max-w-[57.5rem] gap-20 px-10 pb-10"
       style={{
         fontFamily: "Volkhov",
       }}

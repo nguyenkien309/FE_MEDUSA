@@ -21,7 +21,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
         className={clx(
           "flex-1 content-container h-full w-full bg-white flex flex-col",
           {
-            "min-w-[32.5rem]": customer,
+            // "min-w-[25rem]": customer,
           }
         )}
       >

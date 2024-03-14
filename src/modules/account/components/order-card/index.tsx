@@ -16,20 +16,21 @@ const OrderCard = ({ order }: OrderCardProps) => {
     <>
       {order.items.map((i) => {
         return (
-          <Table.Row key={i.id} className="bg-[#F5F5F5] ">
-            <Table.Cell className="max-w-[60px]" style={{ padding: 0 }}>
-              <Thumbnail
-                thumbnail={i.thumbnail}
-                size="square"
-                className="w-[58px] h-[66px] mt-5 mb-5"
-              />
+          <Table.Row key={i.id} className="bg-[#F5F5F5]">
+            <Table.Cell className="!pl-0 p-4 w-14">
+              <div className="flex w-16">
+                <Thumbnail
+                  thumbnail={i.thumbnail}
+                  size="square"
+                  className="w-[58px] h-[66px]"
+                />
+              </div>
             </Table.Cell>
 
-            <Table.Cell className="max-w-[50px]">
-              <span className="text-center text-ui-fg-base font-semibold">
-                {i.title}
-              </span>
+            <Table.Cell className="text-center text-ui-fg-base font-semibold">
+              {i.title}
             </Table.Cell>
+
             <Table.Cell className="text-center">{i.quantity}</Table.Cell>
             <Table.Cell className="text-center">
               {formatAmount({

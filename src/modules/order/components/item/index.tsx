@@ -17,7 +17,7 @@ const Item = ({ item, region }: ItemProps) => {
   return (
     <>
       <Table.Row className="w-full bg-[#F5F5F5]">
-        <Table.Cell className="!pl-0 p-4 w-24">
+        <Table.Cell className="!pl-0 p-4 w-14">
           <div className="flex w-16">
             <Thumbnail
               thumbnail={item.thumbnail}
@@ -27,9 +27,12 @@ const Item = ({ item, region }: ItemProps) => {
           </div>
         </Table.Cell>
 
-        <Table.Cell className="text-left max-w-[50px]">
-          <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
+        <Table.Cell>
+          <Text className="text-center text-ui-fg-base font-semibold">
+            {item.title}
+          </Text>
         </Table.Cell>
+
         <Table.Cell className="text-center">
           <Text>
             {formatAmount({
