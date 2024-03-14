@@ -88,7 +88,7 @@ const AccountInfo = ({
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden",
             {
               "max-h-[1000px] opacity-100": isSuccess,
-              "max-h-0 opacity-0": !isSuccess,
+              "max-h-0 hidden": !isSuccess,
             }
           )}
         >
@@ -106,7 +106,7 @@ const AccountInfo = ({
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden",
             {
               "max-h-[1000px] opacity-100": isError,
-              "max-h-0 opacity-0": !isError,
+              "max-h-0 hidden": !isError,
             }
           )}
         >
@@ -123,7 +123,7 @@ const AccountInfo = ({
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-visible",
             {
               "max-h-[1000px] opacity-100": state,
-              "max-h-0 opacity-0": !state,
+              "max-h-0 hidden": !state,
             }
           )}
         >
