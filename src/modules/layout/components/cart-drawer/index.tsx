@@ -84,7 +84,7 @@ const CartDrawer = ({
       >
         <Image src={CartIcon} alt="cart" width={18} height={20} />
         {cartState && cartState?.items?.length > 0 && (
-          <span className="absolute text-center text-[16px] w-6 h-6 left-[17px] bottom-[8px] bg-[#FF0606] text-white rounded-full">
+          <span className="absolute text-center text-sm w-5 h-5 left-3 bottom-2 bg-[#FF0606] text-white rounded-full">
             {totalItems}
           </span>
         )}
@@ -97,7 +97,7 @@ const CartDrawer = ({
             onClick={handleToggleCart}
           />
           <div
-            className="max-w-[741px] w-full h-full fixed right-0 top-0 bg-white z-50 flex flex-col justify-between transition-all"
+            className="max-w-[741px] w-full h-full fixed right-0 top-0 bg-white z-50 flex flex-col justify-between transition-all overflow-auto "
             style={{
               right: openCart ? "0" : "-100%",
             }}
@@ -119,7 +119,7 @@ const CartDrawer = ({
               <div className="small:pt-[45px] pt-4 small:pl-[45px] small:pr-[86px] px-4 pb-0">
                 {cartState && cartState.items?.length ? (
                   <>
-                    <div className="overflow-y-scroll max-h-[680px] h-full flex flex-col no-scrollbar p-px w-full">
+                    <div className="overflow-y-scroll max-h-[600px] h-full flex flex-col no-scrollbar p-px w-full">
                       {cartState.items
                         .sort((a, b) => {
                           return a.created_at > b.created_at ? -1 : 1

@@ -25,7 +25,7 @@ export default async function Nav() {
           </div>
 
           <div className="flex items-center justify-end flex-grow">
-            <div className="flex items-center justify-center gap-4 md:gap-20 shrink-0">
+            <div className="flex items-center justify-center gap-6 md:gap-20 shrink-0">
               <LocalizedClientLink
                 className="hidden lg:flex hover:text-ui-fg-base text-[1rem]"
                 href="/"

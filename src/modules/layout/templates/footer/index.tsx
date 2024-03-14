@@ -4,9 +4,8 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 export default async function Footer() {
   return (
-    <footer className="w-full border-t border-ui-border-base">
-      <div className="flex flex-col justify-center items-center w-full">
-        <div className="flex flex-col md:flex-row w-full items-center max-w-[80rem] p-6 gap-y-3">
+    <footer className="w-full border-t border-ui-border-base content-container">
+      <div className="flex justify-center items-center w-full flex-row p-6">
           <div className="flex-grow sm:flex-grow-0">
             <LocalizedClientLink
               href="/"
@@ -38,7 +37,6 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   )
 }

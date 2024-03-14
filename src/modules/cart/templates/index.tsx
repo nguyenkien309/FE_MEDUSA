@@ -16,8 +16,8 @@ const CartTemplate = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   return (
-    <div className="pt-8 w-full">
-      <div className="content-container small:max-w-[1281px] max-w-full medium:p-0 p-4">
+    <div className="pt-8 w-full content-container">
+      <div className=" medium:p-0 p-4">
         {cart?.items.length ? (
           <div className="w-full">
             <Heading className="text-center text-black small:text-[46px] xsmall:text-[32px] text-[28px] leading-[32px] font-normal small:mb-[60px] xsmall:mb-8 mb-6">

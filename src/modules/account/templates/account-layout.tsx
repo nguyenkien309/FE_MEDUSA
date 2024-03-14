@@ -18,12 +18,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
   return (
     <div className="flex-1 small:py-12">
       <div
-        className={clx(
-          "flex-1 content-container h-full w-full bg-white flex flex-col",
-          {
-            // "min-w-[25rem]": customer,
-          }
-        )}
+        className="flex-1 content-container h-full w-full bg-white flex flex-col"
       >
         {customer ? (
           <>
